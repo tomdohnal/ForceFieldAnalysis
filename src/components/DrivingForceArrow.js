@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 
 import Arrow from './Arrow';
 
-const HelpingForceArrow = ({ strength }) => (
+const DrivingForceArrow = ({ strength }) => (
   <Arrow
     strength={strength}
     color="#A5BB2B"
   />
 );
 
-HelpingForceArrow.propTypes = {
+DrivingForceArrow.propTypes = {
   strength: PropTypes.number.isRequired,
 };
 
-export default HelpingForceArrow;
+export default DrivingForceArrow;
