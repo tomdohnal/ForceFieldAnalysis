@@ -2,9 +2,18 @@
   "globals": {
     "document": true
   },
+  "extends": [
+    "plugin:flowtype/recommended"
+  ],
+  "plugins": [
+    "flowtype"
+  ],
   "rules": {
     "indent": ["error", 2],
     "react/jsx-indent": ["error", 2],
-    "react/jsx-indent-props": ["error", 2]
+    "react/jsx-indent-props": ["error", 2],
+    "react/require-default-props": 0,
+    "import/prefer-default-export": 0,
+    "object-curly-newline": 0
   }
 }

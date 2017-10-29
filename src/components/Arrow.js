@@ -1,11 +1,17 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { Rectangle, Triangle } from './svg';
 
+type Props = {
+  left?: boolean,
+  color: string,
+  strength: number,
+}
+
 const Arrow = ({
   left, color, strength,
-}) => {
+}: Props) => {
   const arrowWidth = strength * 50;
   const arrowHeight = 120;
   const rectangleHeight = arrowHeight - 50;
@@ -30,16 +36,6 @@ const Arrow = ({
       />
     </svg>
   );
-};
-
-Arrow.propTypes = {
-  left: PropTypes.bool,
-  color: PropTypes.string.isRequired,
-  strength: PropTypes.number.isRequired,
-};
-
-Arrow.defaultProps = {
-  left: false,
 };
 
 export default Arrow;

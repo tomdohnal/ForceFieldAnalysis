@@ -1,19 +1,17 @@
-/* eslint import/prefer-default-export: off */
-
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+
+type Props = {
+  x: string,
+  y: string,
+  z: string,
+  color: string,
+}
 
 const Triangle = ({
   x, y, z, color,
-}) => (
+}: Props) => (
   <polygon points={`${x} ${y} ${z}`} fill={color} />
 );
-
-Triangle.propTypes = {
-  x: PropTypes.string.isRequired,
-  y: PropTypes.string.isRequired,
-  z: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
-};
 
 export { Triangle };

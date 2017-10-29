@@ -1,12 +1,10 @@
 import React from 'react';
 
-import DrivingForceArrow from './components/DrivingForceArrow';
-import HinderingForceArrow from './components/HinderingForceArrow';
+import DrivingForcesContainer from './containers/DrivingForcesContainer';
 
 const App = () => (
   <div>
-    <DrivingForceArrow strength={3} />
-    <HinderingForceArrow strength={4} />
+    <DrivingForcesContainer />
   </div>
 );
 
