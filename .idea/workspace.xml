@@ -2,22 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdf1b6c6-bea5-489e-848a-959b66de0b8e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/DrivingForcesContainer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ducks/forces.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/reducers/forcesReducer.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/reducers/index.js" afterPath="$PROJECT_DIR$/src/redux/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.eslintrc" afterPath="$PROJECT_DIR$/.eslintrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/DrivingForcesContainer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/HinderingForcesContainer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/ForcesContainer.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/containers/DrivingForcesContainer.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Arrow.js" afterPath="$PROJECT_DIR$/src/components/Arrow.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/DrivingForceArrow.js" afterPath="$PROJECT_DIR$/src/components/DrivingForceArrow.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/HinderingForceArrow.js" afterPath="$PROJECT_DIR$/src/components/HinderingForceArrow.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/svg/Rectangle.js" afterPath="$PROJECT_DIR$/src/components/svg/Rectangle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/svg/Triangle.js" afterPath="$PROJECT_DIR$/src/components/svg/Triangle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yarn.lock" afterPath="$PROJECT_DIR$/yarn.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/redux/index.js" afterPath="$PROJECT_DIR$/src/redux/index.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/index.js">
+      <file leaf-file-name="HinderingForcesContainer.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/HinderingForcesContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="4" column="42" lean-forward="false" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+            <state relative-caret-position="208">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -46,6 +37,8 @@
       <find>HelpingF</find>
       <find>console.log</find>
       <find>console</find>
+      <find>this.props.forces</find>
+      <find>driving</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -61,24 +54,25 @@
         <option value="$PROJECT_DIR$/src/components/svg/index.js" />
         <option value="$PROJECT_DIR$/src/reducers/index.js" />
         <option value="$PROJECT_DIR$/src/components/HelpingForceArrow.js" />
-        <option value="$PROJECT_DIR$/src/containers/ForcesContainer.js" />
-        <option value="$PROJECT_DIR$/src/components/DrivingForcesContainer.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/actions/types.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/actions/forces.js" />
         <option value="$PROJECT_DIR$/src/reducers/forcesReducer.js" />
         <option value="$PROJECT_DIR$/src/ducks/index.js" />
-        <option value="$PROJECT_DIR$/src/redux/index.js" />
         <option value="$PROJECT_DIR$/src/containers/DrivingForcesContainer.js" />
         <option value="$PROJECT_DIR$/src/ducks/forces.js" />
         <option value="$PROJECT_DIR$/src/components/svg/Triangle.js" />
         <option value="$PROJECT_DIR$/.eslintrc" />
         <option value="$PROJECT_DIR$/src/components/svg/Rectangle.js" />
-        <option value="$PROJECT_DIR$/src/components/DrivingForceArrow.js" />
         <option value="$PROJECT_DIR$/src/components/HinderingForceArrow.js" />
         <option value="$PROJECT_DIR$/src/components/Arrow.js" />
+        <option value="$PROJECT_DIR$/src/redux/index.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/components/DrivingForceArrow.js" />
+        <option value="$PROJECT_DIR$/src/containers/ForcesContainer.js" />
+        <option value="$PROJECT_DIR$/src/components/DrivingForcesContainer.js" />
+        <option value="$PROJECT_DIR$/src/components/HinderingForcesContainer.js" />
       </list>
     </option>
   </component>
@@ -154,8 +148,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -203,6 +195,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -264,12 +258,13 @@
       <workItem from="1509105105959" duration="6743000" />
       <workItem from="1509194899117" duration="181000" />
       <workItem from="1509201723530" duration="10967000" />
-      <workItem from="1509309008440" duration="858000" />
+      <workItem from="1509309008440" duration="1687000" />
+      <workItem from="1509374511281" duration="2739000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32301000" />
+    <option name="totallyTimeSpent" value="35869000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1857" height="1092" extended-state="6" />
@@ -285,6 +280,7 @@
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25013477" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -293,7 +289,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957393" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -308,20 +303,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/Arrow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="30" column="2" lean-forward="false" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Arrow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="30" column="2" lean-forward="false" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Arrow.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="780">
@@ -498,7 +479,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/DrivingForcesContainer.js" />
     <entry file="file://$PROJECT_DIR$/node_modules/shortid/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -538,7 +518,6 @@
         <state relative-caret-position="416">
           <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
           <folding>
-            <marker date="1509309789092" expanded="true" signature="0:367" ph="{...}" />
             <marker date="1509309789092" expanded="true" signature="15:41" ph="{&quot;document&quot;: true...}" />
             <marker date="1509309789092" expanded="true" signature="56:95" ph="[...]" />
             <marker date="1509309789092" expanded="true" signature="110:130" ph="[...]" />
@@ -551,47 +530,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/svg/Triangle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding>
-            <marker date="1509309788128" expanded="true" signature="50:109" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/svg/Rectangle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding>
-            <marker date="1509309793084" expanded="true" signature="50:131" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/svg/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/DrivingForceArrow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <marker date="1509309819299" expanded="true" signature="16:65" ph="..." />
-            <marker date="1509309819299" expanded="true" signature="80:103" ph="..." />
-            <marker date="1509309819299" expanded="true" signature="163:218" ph="&lt;Arrow/&gt;" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -603,47 +541,6 @@
             <marker date="1509309825127" expanded="true" signature="16:65" ph="..." />
             <marker date="1509309825127" expanded="true" signature="80:103" ph="..." />
             <marker date="1509309825127" expanded="true" signature="165:229" ph="&lt;Arrow/&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Arrow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <marker date="1509309829407" expanded="true" signature="16:81" ph="..." />
-            <marker date="1509309829407" expanded="true" signature="96:154" ph="..." />
-            <marker date="1509309829407" expanded="true" signature="211:996" ph="{...}" />
-            <marker date="1509309829407" expanded="true" signature="364:989" ph="&lt;svg/&gt;" />
-            <marker date="1509309829407" expanded="true" signature="461:663" ph="&lt;Rectangle/&gt;" />
-            <marker date="1509309829407" expanded="true" signature="670:978" ph="&lt;Triangle/&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/DrivingForcesContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-894">
-          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-          <folding>
-            <marker date="1509210493262" expanded="true" signature="16:270" ph="..." />
-            <marker date="1509210493262" expanded="true" signature="285:388" ph="..." />
-            <marker date="1509210493262" expanded="true" signature="404:486" ph="..." />
-            <marker date="1509210493262" expanded="true" signature="550:1801" ph="{...}" />
-            <marker date="1509210493262" expanded="true" signature="562:663" ph="{&quot;newDrivingForceName&quot;: ''...}" />
-            <marker date="1509210493262" expanded="true" signature="706:853" ph="{...}" />
-            <marker date="1509210493262" expanded="true" signature="726:847" ph="{&quot;newDrivingForceName&quot;: e.target.value...}" />
-            <marker date="1509210493262" expanded="true" signature="895:1239" ph="{...}" />
-            <marker date="1509210493262" expanded="true" signature="938:1087" ph="{...}" />
-            <marker date="1509210493262" expanded="true" signature="960:1079" ph="{&quot;newDrivingForceErrorText&quot;: 'Enter the description for the force.'...}" />
-            <marker date="1509210493262" expanded="true" signature="1093:1235" ph="{...}" />
-            <marker date="1509210493262" expanded="true" signature="1115:1157" ph="{&quot;newDrivingForceName&quot;: ''...}" />
-            <marker date="1509210493262" expanded="true" signature="1259:1380" ph="{...}" />
-            <marker date="1509210493262" expanded="true" signature="1393:1799" ph="{...}" />
-            <marker date="1509210493262" expanded="true" signature="1414:1788" ph="&lt;div/&gt;" />
-            <marker date="1509210493262" expanded="true" signature="1458:1629" ph="&lt;Input/&gt;" />
-            <marker date="1509210493262" expanded="true" signature="1837:1904" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -665,13 +562,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="4" column="42" lean-forward="false" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+          <folding>
+            <marker date="1509209726822" expanded="true" signature="7:302" ph="..." />
+            <marker date="1509209726822" expanded="true" signature="361:407" ph="&lt;Provider/&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/DrivingForcesContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="10" column="32" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/svg/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/svg/Rectangle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding>
+            <marker date="1509309793084" expanded="true" signature="50:131" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/svg/Triangle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+          <folding>
+            <marker date="1509309788128" expanded="true" signature="50:109" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="338">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
-            <marker date="1509210336881" expanded="true" signature="7:86" ph="..." />
-            <marker date="1509210336881" expanded="true" signature="124:152" ph="{&quot;forces&quot;: forcesReducer...}" />
+            <marker date="1509374893592" expanded="true" signature="7:98" ph="..." />
+            <marker date="1509374893592" expanded="true" signature="136:164" ph="{&quot;forces&quot;: forcesReducer...}" />
+            <marker date="1509374893592" expanded="true" signature="188:209" ph="..." />
           </folding>
         </state>
       </provider>
@@ -679,18 +624,84 @@
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
-          <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
           <folding>
-            <marker date="1509108533166" expanded="true" signature="7:101" ph="..." />
-            <marker date="1509108533166" expanded="true" signature="125:170" ph="&lt;div/&gt;" />
+            <marker date="1509375306253" expanded="true" signature="7:179" ph="..." />
+            <marker date="1509375306253" expanded="true" signature="203:281" ph="&lt;div/&gt;" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
+    <entry file="file://$PROJECT_DIR$/src/components/DrivingForceArrow.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="4" column="42" lean-forward="false" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+        <state relative-caret-position="156">
+          <caret line="6" column="19" lean-forward="false" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+          <folding>
+            <marker date="1509309819299" expanded="true" signature="16:65" ph="..." />
+            <marker date="1509309819299" expanded="true" signature="80:103" ph="..." />
+            <marker date="1509309819299" expanded="true" signature="163:218" ph="&lt;Arrow/&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Arrow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <marker date="1509309829407" expanded="true" signature="16:81" ph="..." />
+            <marker date="1509309829407" expanded="true" signature="96:154" ph="..." />
+            <marker date="1509309829407" expanded="true" signature="211:996" ph="{...}" />
+            <marker date="1509309829407" expanded="true" signature="364:989" ph="&lt;svg/&gt;" />
+            <marker date="1509309829407" expanded="true" signature="461:663" ph="&lt;Rectangle/&gt;" />
+            <marker date="1509309829407" expanded="true" signature="670:978" ph="&lt;Triangle/&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/ForcesContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="14" column="2" lean-forward="true" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+          <folding>
+            <marker date="1509377208544" expanded="true" signature="16:406" ph="..." />
+            <marker date="1509377208544" expanded="true" signature="421:503" ph="..." />
+            <marker date="1509377208544" expanded="true" signature="519:642" ph="..." />
+            <marker date="1509377208544" expanded="true" signature="699:1965" ph="{...}" />
+            <marker date="1509377208544" expanded="true" signature="711:791" ph="{&quot;newForceName&quot;: ''...}" />
+            <marker date="1509377208544" expanded="true" signature="827:953" ph="{...}" />
+            <marker date="1509377208544" expanded="true" signature="847:947" ph="{&quot;newForceName&quot;: e.target.value...}" />
+            <marker date="1509377208544" expanded="true" signature="988:1290" ph="{...}" />
+            <marker date="1509377208544" expanded="true" signature="1024:1159" ph="{...}" />
+            <marker date="1509377208544" expanded="true" signature="1046:1151" ph="{&quot;newForceErrorText&quot;: 'Enter the description for the force.'...}" />
+            <marker date="1509377208544" expanded="true" signature="1165:1286" ph="{...}" />
+            <marker date="1509377208544" expanded="true" signature="1187:1222" ph="{&quot;newForceName&quot;: ''...}" />
+            <marker date="1509377208544" expanded="true" signature="1310:1567" ph="{...}" />
+            <marker date="1509377208544" expanded="true" signature="1356:1561" ph="{...}" />
+            <marker date="1509377208544" expanded="true" signature="1388:1476" ph="{...}" />
+            <marker date="1509377208544" expanded="true" signature="1580:1963" ph="{...}" />
+            <marker date="1509377208544" expanded="true" signature="1601:1952" ph="&lt;div/&gt;" />
+            <marker date="1509377208544" expanded="true" signature="1645:1795" ph="&lt;Input/&gt;" />
+            <marker date="1509377208544" expanded="true" signature="2032:2111" ph="{...}" />
+            <marker date="1509377208544" expanded="true" signature="2174:2355" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/DrivingForcesContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="58" />
+          <folding>
+            <marker date="1509377240619" expanded="true" signature="16:97" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/HinderingForcesContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
