@@ -5,6 +5,7 @@ import { Form, Input, Button, Select, Label } from 'semantic-ui-react';
 
 import DrivingForceArrow from '../components/DrivingForceArrow';
 import HinderingForceArrow from '../components/HinderingForceArrow';
+import { Box } from '../components/common';
 import { addDrivingForce, addHinderingForce, type Forces } from '../ducks/forces';
 import { type ReduxState } from '../redux';
 
@@ -80,13 +81,13 @@ class ForcesContainer extends Component<Props, State> {
 
   render() {
     return (
-      <div>
+      <Box padding="0 16px">
         {this.renderForces()}
         <Form>
           <Form.Group inline>
             <Form.Field>
               <label>Force name:</label>
-              <Label basic color="red" pointing='below'>{this.state.newForceErrorText}</Label>
+              {this.state.newForceError ? <Label basic color="red" pointing="below">{this.state.newForceErrorText}</Label> : ''}
               <Input
                 onChange={this.onNewForceInputChange}
                 value={this.state.newForceName}
@@ -103,12 +104,12 @@ class ForcesContainer extends Component<Props, State> {
                 value={this.state.newForceStrength}
               />
             </Form.Field>
-            <Form.Field>
-              <Button onClick={this.onNewForceButtonClick}>{this.props.submitButtonText}</Button>
-            </Form.Field>
           </Form.Group>
+          <Form.Field>
+            <Button onClick={this.onNewForceButtonClick}>{this.props.submitButtonText}</Button>
+          </Form.Field>
         </Form>
-      </div>
+      </Box>
     );
   }
 }

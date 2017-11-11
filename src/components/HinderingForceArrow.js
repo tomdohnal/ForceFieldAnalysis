@@ -13,7 +13,7 @@ const HinderingForceArrow = ({
   <Arrow
     left
     strength={strength}
-    color="#E74C3C"
+    color="#dc2f2f"
   />
 );
 

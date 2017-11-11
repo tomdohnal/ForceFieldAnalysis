@@ -12,7 +12,7 @@ const DrivingForceArrow = ({
 }: Props) => (
   <Arrow
     strength={strength}
-    color="#A5BB2B"
+    color="#859900"
   />
 );
 

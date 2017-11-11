@@ -6,4 +6,6 @@ const text = ({ fontSize, color }) => ({
   fontSize,
 });
 
-export default createComponent(text, 'span');
+const Text = createComponent(text, 'span');
+
+export { Text };

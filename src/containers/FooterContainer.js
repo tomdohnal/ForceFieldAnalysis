@@ -1,12 +1,10 @@
 // @flow
 import React from 'react';
 import { connect } from 'react-redux';
-import { Grid } from 'semantic-ui-react';
 
 import { type Force } from '../ducks/forces';
 import { type ReduxState } from '../redux';
 import Footer from '../components/Footer';
-import Text from '../components/Text';
 
 type Props = {
   drivingForcesCount: number,
@@ -24,23 +22,15 @@ const FooterContainer = ({
   } else if (drivingForcesCount > hinderingForcesCount) {
     centerText = 'Let\'s make the change happen!';
   } else {
-    centerText = 'No way! Status quo wins...';
+    centerText = 'No way! Keep status quo...';
   }
 
   return (
-    <Footer>
-      <Grid>
-        <Grid.Column width={6}>
-          <Text fontSize="54px" color="#FFF">Driving forces: {drivingForcesCount}</Text>
-        </Grid.Column>
-        <Grid.Column width={4} textAlign="center">
-          <Text fontSize="24px" color="#FFF">{centerText}</Text>
-        </Grid.Column>
-        <Grid.Column width={6} textAlign="right">
-          <Text fontSize="54px" color="#FFF">Hindering forces: {hinderingForcesCount}</Text>
-        </Grid.Column>
-      </Grid>
-    </Footer>
+    <Footer
+      drivingForcesCount={drivingForcesCount}
+      hinderingForcesCount={hinderingForcesCount}
+      centerText={centerText}
+    />
   );
 };
 
