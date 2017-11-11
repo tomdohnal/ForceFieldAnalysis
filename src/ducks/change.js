@@ -32,7 +32,7 @@ export const setChangeName = (name: string): ChangeAction => ({
 });
 
 export const setChangeDescription = (description: string): ChangeAction => ({
-  type: SET_CHANGE_NAME,
+  type: SET_CHANGE_DESCRIPTION,
   payload: {
     description,
   },

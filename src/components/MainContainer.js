@@ -3,7 +3,7 @@ import { Grid } from 'semantic-ui-react';
 
 import DrivingForcesContainer from './DrivingForcesContainer';
 import HinderingForcesContainer from './HinderingForcesContainer';
-import ChangeContainer from './ChangeContainer';
+import ChangeContainer from '../containers/ChangeContainer';
 import { HEADER_HEIGHT } from '../constants/styles';
 
 const MainContainer = () => (
