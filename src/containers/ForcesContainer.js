@@ -1,17 +1,18 @@
 // @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Input, Button } from 'semantic-ui-react';
+import { Form, Input, Button, Select, Label } from 'semantic-ui-react';
 
 import DrivingForceArrow from '../components/DrivingForceArrow';
 import HinderingForceArrow from '../components/HinderingForceArrow';
 import { addDrivingForce, addHinderingForce, type Forces } from '../ducks/forces';
-import { State as ReduxState } from '../redux';
+import { type ReduxState } from '../redux';
 
 type State = {
   newForceName: string,
   newForceError: boolean,
   newForceErrorText: string,
+  newForceStrength: number,
 };
 
 type Props = {
@@ -22,17 +23,26 @@ type Props = {
 };
 
 class ForcesContainer extends Component<Props, State> {
-  state = {
+  defaultState = {
     newForceName: '',
     newForceError: false,
     newForceErrorText: '',
+    newForceStrength: 1,
   };
 
-  onNewForceInputChange = (e) => {
+  state = this.defaultState;
+
+  onNewForceInputChange = (e, data) => {
     this.setState({
-      newForceName: e.target.value,
+      newForceName: data.value,
       newForceError: false,
       newForceErrorText: '',
+    });
+  };
+
+  onNewForceStrengthDropdownChange = (e, data) => {
+    this.setState({
+      newForceStrength: data.value,
     });
   };
 
@@ -43,13 +53,21 @@ class ForcesContainer extends Component<Props, State> {
         newForceErrorText: 'Enter the description for the force.',
       });
     } else {
-      this.setState({
-        newForceName: '',
-      });
+      this.props.addForce(this.state.newForceName, this.state.newForceStrength);
 
-      this.props.addForce(this.state.newForceName, 2);
+      this.setState(this.defaultState);
     }
   };
+
+  getStrengthOptions() {
+    let options = [];
+
+    for (let i = 1; i <= 8; i += 1) {
+      options = [...options, { key: i, text: i, value: i }];
+    }
+
+    return options;
+  }
 
   renderForces() {
     return this.props.forces.map((force) => {
@@ -64,13 +82,32 @@ class ForcesContainer extends Component<Props, State> {
     return (
       <div>
         {this.renderForces()}
-        <Input
-          onChange={this.onNewForceInputChange}
-          value={this.state.newForceName}
-          error={this.state.newForceError}
-        />
-        <Button onClick={this.onNewForceButtonClick}>{this.props.submitButtonText}</Button>
-        <span>{this.state.newForceErrorText}</span>
+        <Form>
+          <Form.Group inline>
+            <Form.Field>
+              <label>Force name:</label>
+              <Label basic color="red" pointing='below'>{this.state.newForceErrorText}</Label>
+              <Input
+                onChange={this.onNewForceInputChange}
+                value={this.state.newForceName}
+                error={this.state.newForceError}
+              />
+            </Form.Field>
+            <Form.Field>
+              <label>Force strength</label>
+              <Select
+                compact
+                labeled
+                onChange={this.onNewForceStrengthDropdownChange}
+                options={this.getStrengthOptions()}
+                value={this.state.newForceStrength}
+              />
+            </Form.Field>
+            <Form.Field>
+              <Button onClick={this.onNewForceButtonClick}>{this.props.submitButtonText}</Button>
+            </Form.Field>
+          </Form.Group>
+        </Form>
       </div>
     );
   }

@@ -1,12 +1,13 @@
+// @flow
 import { combineReducers } from 'redux';
 
-import forcesReducer, { Forces } from '../ducks/forces';
+import forcesReducer, { type Forces } from '../ducks/forces';
 
 const rootReducer = combineReducers({
   forces: forcesReducer,
 });
 
-export type State = {
+export type ReduxState = {
   forces: Forces,
 }
 

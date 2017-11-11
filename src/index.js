@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+import { Provider as ReduxProvider } from 'react-redux';
+import { createRenderer } from 'fela';
+import { Provider as FelaProvider } from 'react-fela';
 import 'semantic-ui-css/semantic.min.css';
 
 import rootReducer from './redux';
@@ -10,8 +12,12 @@ import registerServiceWorker from './registerServiceWorker';
 
 const store = createStore(rootReducer);
 
-ReactDOM.render(<Provider store={store}>
-  <App />
-</Provider>, document.getElementById('root'));
+const renderer = createRenderer();
+
+ReactDOM.render(<ReduxProvider store={store}>
+  <FelaProvider renderer={renderer}>
+    <App />
+  </FelaProvider>
+</ReduxProvider>, document.getElementById('root'));
 
 registerServiceWorker();

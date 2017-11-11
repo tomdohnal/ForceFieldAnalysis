@@ -1,12 +1,12 @@
 import React from 'react';
 
-import DrivingForcesContainer from './components/DrivingForcesContainer';
-import HinderingForcesContainer from './components/HinderingForcesContainer';
+import MainContainer from './components/Container';
+import FooterContainer from './containers/FooterContainer';
 
 const App = () => (
   <div>
-    <DrivingForcesContainer />
-    <HinderingForcesContainer />
+    <MainContainer />
+    <FooterContainer />
   </div>
 );
 
