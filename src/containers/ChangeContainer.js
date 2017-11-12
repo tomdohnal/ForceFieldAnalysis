@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Form, Input, TextArea, Button, Icon } from 'semantic-ui-react';
+import { Form, Input, TextArea, Button } from 'semantic-ui-react';
 import EditIcon from 'react-icons/lib/ti/edit';
 
 import { COLORS } from '../constants/styles';

@@ -1,18 +1,21 @@
 // @flow
 import React from 'react';
 
+import { COLORS } from '../constants/styles';
 import Arrow from './Arrow';
 
 type Props = {
   strength: number,
+  name: string,
 }
 
 const DrivingForceArrow = ({
-  strength,
+  strength, name,
 }: Props) => (
   <Arrow
     strength={strength}
-    color="#859900"
+    color={COLORS.GREEN}
+    name={name}
   />
 );
 

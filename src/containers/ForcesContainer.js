@@ -73,16 +73,24 @@ class ForcesContainer extends Component<Props, State> {
   renderForces() {
     return this.props.forces.map((force) => {
       if (this.props.driving) {
-        return <DrivingForceArrow strength={force.strength} key={force.id} />;
+        return (
+          <Box key={force.id} >
+            <DrivingForceArrow strength={force.strength} name={force.name} />
+          </Box>
+        );
       }
-      return <HinderingForceArrow strength={force.strength} key={force.id} />;
+      return (
+        <Box key={force.id} >
+          <HinderingForceArrow strength={force.strength} name={force.name} />
+        </Box>
+      );
     });
   }
 
   render() {
     return (
       <Box padding="0 16px">
-        {this.renderForces()}
+        <Box textAlign={this.props.driving ? 'right' : 'left'}>{this.renderForces()}</Box>
         <Form>
           <Form.Group inline>
             <Form.Field>

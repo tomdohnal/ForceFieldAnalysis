@@ -1,19 +1,22 @@
 // @flow
 import React from 'react';
 
+import { COLORS } from '../constants/styles';
 import Arrow from './Arrow';
 
 type Props = {
   strength: number,
+  name: string,
 }
 
 const HinderingForceArrow = ({
-  strength,
+  strength, name
 }: Props) => (
   <Arrow
     left
     strength={strength}
-    color="#dc2f2f"
+    color={COLORS.RED}
+    name={name}
   />
 );
 
