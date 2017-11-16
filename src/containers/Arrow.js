@@ -1,10 +1,11 @@
 // @flow
 import React, { Component } from 'react';
-import { Form, Input, Button } from 'semantic-ui-react';
+import { Form, Input, Button, Icon } from 'semantic-ui-react';
 import EditIcon from 'react-icons/lib/ti/edit';
 import { connect } from 'react-redux';
 
-import { type Force, setForceName } from '../ducks/forces';
+import { COLORS } from '../constants/styles';
+import { type Force, deleteForce, setForceName } from '../ducks/forces';
 import { Text, Box } from '../components/common/index';
 import { Rectangle, Triangle } from '../components/svg/index';
 import TextBubble from '../components/TextBubble';
@@ -12,6 +13,7 @@ import TextBubble from '../components/TextBubble';
 type Props = {
   color: string,
   force: Force,
+  deleteForce: (id: string) => void,
   setForceName: (id: string, name: string) => void,
 }
 
@@ -22,6 +24,10 @@ type State = {
 class Arrow extends Component<Props, State> {
   state = {
     editArrow: false,
+  };
+
+  onDeleteArrowIconClick = () => {
+    this.props.deleteForce(this.props.force.id);
   };
 
   onEditArrowInputChange = (event, data) => {
@@ -66,7 +72,19 @@ class Arrow extends Component<Props, State> {
             </Box>
           }
         </TextBubble>
-        <Box>
+        <Box position="relative">
+          <Icon
+            name="delete"
+            size="big"
+            style={{
+              position: 'absolute',
+              top: 'calc(50% - 14px)',
+              [driving ? 'right' : 'left']: `${arrowWidth}px`,
+              color: COLORS.RED,
+              cursor: 'pointer',
+            }}
+            onClick={this.onDeleteArrowIconClick}
+          />
           <svg height={arrowHeight} width={arrowWidth} viewBox={`0 0 ${arrowWidth} ${arrowHeight}`}>
             <Rectangle
               width={arrowWidth - triangleWidth}
@@ -90,4 +108,4 @@ class Arrow extends Component<Props, State> {
   }
 }
 
-export default connect(undefined, { setForceName })(Arrow);
+export default connect(undefined, { deleteForce, setForceName })(Arrow);
