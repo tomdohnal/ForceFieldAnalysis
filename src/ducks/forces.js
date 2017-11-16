@@ -2,6 +2,7 @@
 import shortid from 'shortid';
 
 export const ADD_FORCE: string = 'FORCES/ADD_FORCE';
+export const SET_FORCE_NAME = 'FORCES/SET_FORCE_NAME';
 
 export type Force = {
   id: string,
@@ -10,21 +11,20 @@ export type Force = {
   strength: number,
 }
 
-export type Forces = Array<Force>;
+export type Forces = {
+  [id: string]: Force,
+};
 
 type ForceAction = {
   type: typeof ADD_FORCE,
   payload: Force,
-}
-
-export default (state: Forces = [], action: ForceAction): Forces => {
-  switch (action.type) {
-  case ADD_FORCE:
-    return [...state, action.payload];
-  default:
-    return state;
+} | {
+  type: typeof SET_FORCE_NAME,
+  payload: {
+    id: string,
+    name: string,
   }
-};
+}
 
 const addForce = (name: string, strength: number, driving: boolean): ForceAction => ({
   type: ADD_FORCE,
@@ -43,3 +43,22 @@ export const addDrivingForce = (name: string, strength: number): ForceAction => 
 export const addHinderingForce = (name: string, strength: number): ForceAction => (
   addForce(name, strength, false)
 );
+
+export const setForceName = (id: string, name: string): ForceAction => ({
+  type: SET_FORCE_NAME,
+  payload: { id, name },
+});
+
+export default (state: Forces = {}, action: ForceAction): Forces => {
+  switch (action.type) {
+  case ADD_FORCE:
+    return { ...state, [action.payload.id]: action.payload };
+  case SET_FORCE_NAME:
+    return {
+      ...state,
+      [action.payload.id]: { ...state[action.payload.id], name: action.payload.name },
+    };
+  default:
+    return state;
+  }
+};

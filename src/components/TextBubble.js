@@ -1,17 +1,18 @@
 import { createComponent } from 'react-fela';
 
-const arrowMargin = 12;
+const arrowMargin = 20;
 const arrowHeight = 12;
 
 const textBubbleStyles = ({ color, left }) => ({
   position: 'relative',
+  textAlign: 'right',
   display: 'inline-block',
-  padding: '4px 12px',
-  margin: '0 0 16px',
+  padding: '4px 4px 4px 4px',
+  marginBottom: '4px',
   border: `2px solid ${color}`,
   color: '#333',
   background: '#fff',
-  minWidth: '100px',
+  minWidth: '80px',
   WebkitBorderRadius: '5px',
   MozBorderRadius: '5px',
   borderRadius: '5px',

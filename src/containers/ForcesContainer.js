@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+import _ from 'lodash';
 import { connect } from 'react-redux';
 import { Form, Input, Button, Select, Label } from 'semantic-ui-react';
 
@@ -71,17 +72,17 @@ class ForcesContainer extends Component<Props, State> {
   }
 
   renderForces() {
-    return this.props.forces.map((force) => {
+    return _.map(this.props.forces, (force) => {
       if (this.props.driving) {
         return (
           <Box key={force.id} >
-            <DrivingForceArrow strength={force.strength} name={force.name} />
+            <DrivingForceArrow force={force} />
           </Box>
         );
       }
       return (
         <Box key={force.id} >
-          <HinderingForceArrow strength={force.strength} name={force.name} />
+          <HinderingForceArrow force={force} />
         </Box>
       );
     });
@@ -123,7 +124,7 @@ class ForcesContainer extends Component<Props, State> {
 }
 
 const mapStateToProps = (state: ReduxState, ownProps: Props) => ({
-  forces: state.forces.filter(force => force.driving === ownProps.driving),
+  forces: _.filter(state.forces, force => force.driving === ownProps.driving),
 });
 
 const mapDispatchToProps = (dispatch, ownProps: Props) => ({

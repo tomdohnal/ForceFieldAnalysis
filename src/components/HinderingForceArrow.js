@@ -1,22 +1,20 @@
 // @flow
 import React from 'react';
 
+import { type Force } from '../ducks/forces';
 import { COLORS } from '../constants/styles';
-import Arrow from './Arrow';
+import Arrow from '../containers/Arrow';
 
 type Props = {
-  strength: number,
-  name: string,
+  force: Force,
 }
 
 const HinderingForceArrow = ({
-  strength, name
+  force,
 }: Props) => (
   <Arrow
-    left
-    strength={strength}
+    force={force}
     color={COLORS.RED}
-    name={name}
   />
 );
 
