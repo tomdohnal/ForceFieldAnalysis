@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import _ from 'lodash';
 import { connect } from 'react-redux';
 
 import { type Force } from '../ducks/forces';
@@ -36,7 +37,7 @@ const FooterContainer = ({
 
 
 const mapStateToProps = (state: ReduxState) => {
-  const countForceTotal = (driving: boolean) => (total: number, force: Force) => {
+  const countForcesTotal = (driving: boolean) => (total: number, force: Force) => {
     if (force.driving === driving) {
       return total + force.strength;
     }
@@ -45,10 +46,10 @@ const mapStateToProps = (state: ReduxState) => {
   };
 
   return {
-    drivingForcesCount: state.forces.length ?
-      state.forces.reduce(countForceTotal(true), 0) : 0,
-    hinderingForcesCount: state.forces.length ?
-      state.forces.reduce(countForceTotal(false), 0) : 0,
+    drivingForcesCount: _.size(state.forces) ?
+      _.reduce(state.forces, countForcesTotal(true), 0) : 0,
+    hinderingForcesCount: _.size(state.forces) ?
+      _.reduce(state.forces, countForcesTotal(false), 0) : 0,
   };
 };
 

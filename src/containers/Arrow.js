@@ -1,11 +1,12 @@
 // @flow
 import React, { Component } from 'react';
-import { Form, Input, Button, Icon } from 'semantic-ui-react';
+import { Form, Input, Button, Icon, Divider } from 'semantic-ui-react';
 import EditIcon from 'react-icons/lib/ti/edit';
 import { connect } from 'react-redux';
 
+import { MAX_STRENGTH, MIN_STRENGTH } from '../constants/index';
 import { COLORS } from '../constants/styles';
-import { type Force, deleteForce, setForceName } from '../ducks/forces';
+import { type Force, deleteForce, setForceName, increaseForce, decreaseForce } from '../ducks/forces';
 import { Text, Box } from '../components/common/index';
 import { Rectangle, Triangle } from '../components/svg/index';
 import TextBubble from '../components/TextBubble';
@@ -15,6 +16,8 @@ type Props = {
   force: Force,
   deleteForce: (id: string) => void,
   setForceName: (id: string, name: string) => void,
+  increaseForce: (id: string) => void,
+  decreaseForce: (id: string) => void,
 }
 
 type State = {
@@ -28,6 +31,18 @@ class Arrow extends Component<Props, State> {
 
   onDeleteArrowIconClick = () => {
     this.props.deleteForce(this.props.force.id);
+  };
+
+  onIncreaseArrowIconClick = () => {
+    if (this.props.force.strength !== MAX_STRENGTH) {
+      this.props.increaseForce(this.props.force.id);
+    }
+  };
+
+  onDecreaseArrowIconClick = () => {
+    if (this.props.force.strength !== (MIN_STRENGTH + 1)) {
+      this.props.decreaseForce(this.props.force.id);
+    }
   };
 
   onEditArrowInputChange = (event, data) => {
@@ -79,9 +94,9 @@ class Arrow extends Component<Props, State> {
             style={{
               position: 'absolute',
               top: 'calc(50% - 14px)',
-              [driving ? 'right' : 'left']: `${arrowWidth}px`,
               color: COLORS.RED,
               cursor: 'pointer',
+              [driving ? 'right' : 'left']: `${arrowWidth}px`,
             }}
             onClick={this.onDeleteArrowIconClick}
           />
@@ -102,10 +117,35 @@ class Arrow extends Component<Props, State> {
               color={color}
             />
           </svg>
+          <Box
+            position="absolute"
+            top={`${arrowHeight - ((arrowHeight - rectangleHeight) / 2)}px`}
+            right={driving && `${triangleWidth}px`}
+            left={!driving && `${triangleWidth}px`}
+          >
+            <Icon
+              name="plus"
+              size="big"
+              disabled={strength === MAX_STRENGTH}
+              style={{ cursor: `${strength < MAX_STRENGTH ? 'pointer' : 'initial'}` }}
+              onClick={this.onIncreaseArrowIconClick}
+            />
+            <Text fontSize="18px">{strength}</Text>
+            <Icon
+              name="minus"
+              size="big"
+              disabled={strength === (MIN_STRENGTH + 1)}
+              style={{ cursor: `${strength > (MIN_STRENGTH + 1) ? 'pointer' : 'initial'}` }}
+              onClick={this.onDecreaseArrowIconClick}
+            />
+          </Box>
         </Box>
+        <Divider hidden />
       </Box>
     );
   }
 }
 
-export default connect(undefined, { deleteForce, setForceName })(Arrow);
+const actionCreators = { deleteForce, setForceName, increaseForce, decreaseForce };
+
+export default connect(undefined, actionCreators)(Arrow);
