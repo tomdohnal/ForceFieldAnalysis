@@ -12,7 +12,8 @@ const footerStyles = () => ({
   width: '100%',
   background: '#268bd2',
   bottom: 0,
-  padding: '40px 16px',
+  padding: '0 16px',
+  lineHeight: FOOTER_HEIGHT,
   zIndex: 999,
 });
 

@@ -1,5 +1,5 @@
 export const HEADER_HEIGHT = '60px';
-export const FOOTER_HEIGHT = '120px';
+export const FOOTER_HEIGHT = '80px';
 
 export const COLORS = {
   WHITE: '#fff',

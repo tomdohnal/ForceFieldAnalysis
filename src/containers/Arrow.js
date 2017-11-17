@@ -40,7 +40,7 @@ class Arrow extends Component<Props, State> {
   };
 
   onDecreaseArrowIconClick = () => {
-    if (this.props.force.strength !== (MIN_STRENGTH + 1)) {
+    if (this.props.force.strength !== MIN_STRENGTH) {
       this.props.decreaseForce(this.props.force.id);
     }
   };
@@ -134,8 +134,8 @@ class Arrow extends Component<Props, State> {
             <Icon
               name="minus"
               size="big"
-              disabled={strength === (MIN_STRENGTH + 1)}
-              style={{ cursor: `${strength > (MIN_STRENGTH + 1) ? 'pointer' : 'initial'}` }}
+              disabled={strength === MIN_STRENGTH}
+              style={{ cursor: `${strength > MIN_STRENGTH ? 'pointer' : 'initial'}` }}
               onClick={this.onDecreaseArrowIconClick}
             />
           </Box>

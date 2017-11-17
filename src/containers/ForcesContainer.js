@@ -2,11 +2,13 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
-import { Form, Input, Button, Select, Label } from 'semantic-ui-react';
+import { Form, Input, Button, Label, Icon } from 'semantic-ui-react';
 
+import { MIN_STRENGTH, MAX_STRENGTH } from '../constants';
+import { COLORS } from '../constants/styles';
 import DrivingForceArrow from '../components/DrivingForceArrow';
 import HinderingForceArrow from '../components/HinderingForceArrow';
-import { Box } from '../components/common';
+import { Box, Text } from '../components/common';
 import { addDrivingForce, addHinderingForce, type Forces } from '../ducks/forces';
 import { type ReduxState } from '../redux';
 
@@ -42,17 +44,27 @@ class ForcesContainer extends Component<Props, State> {
     });
   };
 
-  onNewForceStrengthDropdownChange = (e, data) => {
-    this.setState({
-      newForceStrength: data.value,
-    });
+  onIncreaseForceButtonClick = () => {
+    if (this.state.newForceStrength !== MAX_STRENGTH) {
+      this.setState(prevState => ({
+        newForceStrength: prevState.newForceStrength + 1,
+      }));
+    }
+  };
+
+  onDecreaseForceButtonClick = () => {
+    if (this.state.newForceStrength !== MIN_STRENGTH) {
+      this.setState(prevState => ({
+        newForceStrength: prevState.newForceStrength - 1,
+      }));
+    }
   };
 
   onNewForceButtonClick = () => {
     if (!this.state.newForceName) {
       this.setState({
         newForceError: true,
-        newForceErrorText: 'Enter the description for the force.',
+        newForceErrorText: 'Enter the description of the force.',
       });
     } else {
       this.props.addForce(this.state.newForceName, this.state.newForceStrength);
@@ -60,16 +72,6 @@ class ForcesContainer extends Component<Props, State> {
       this.setState(this.defaultState);
     }
   };
-
-  getStrengthOptions() {
-    let options = [];
-
-    for (let i = 1; i <= 8; i += 1) {
-      options = [...options, { key: i, text: i, value: i }];
-    }
-
-    return options;
-  }
 
   renderForces() {
     return _.map(this.props.forces, (force) => {
@@ -89,33 +91,52 @@ class ForcesContainer extends Component<Props, State> {
   }
 
   render() {
+    const { driving, submitButtonText } = this.props;
+
     return (
       <Box padding="0 16px">
-        <Box textAlign={this.props.driving ? 'right' : 'left'}>{this.renderForces()}</Box>
+        <Box textAlign={driving ? 'right' : 'left'}>{this.renderForces()}</Box>
         <Form>
+          <Form.Field>
+            <label>Force name:</label>
+            <Input
+              onChange={this.onNewForceInputChange}
+              value={this.state.newForceName}
+              error={this.state.newForceError}
+            />
+            {this.state.newForceError ? <Label basic color="red" pointing>{this.state.newForceErrorText}</Label> : ''}
+          </Form.Field>
           <Form.Group inline>
-            <Form.Field>
-              <label>Force name:</label>
-              {this.state.newForceError ? <Label basic color="red" pointing="below">{this.state.newForceErrorText}</Label> : ''}
-              <Input
-                onChange={this.onNewForceInputChange}
-                value={this.state.newForceName}
-                error={this.state.newForceError}
-              />
-            </Form.Field>
-            <Form.Field>
-              <label>Force strength</label>
-              <Select
-                compact
-                labeled
-                onChange={this.onNewForceStrengthDropdownChange}
-                options={this.getStrengthOptions()}
-                value={this.state.newForceStrength}
-              />
-            </Form.Field>
+            <label style={{ whiteSpace: 'nowrap' }}>Force strength:</label>
+            <Button
+              disabled={this.state.newForceStrength === MAX_STRENGTH}
+              basic
+              onClick={this.onIncreaseForceButtonClick}
+              content="Increase"
+              icon="plus"
+              labelPosition="left"
+              as="a"
+            />
+            <Text fontSize="24px" padding="0 12px">{this.state.newForceStrength}</Text>
+            <Button
+              disabled={this.state.newForceStrength === MIN_STRENGTH}
+              basic
+              onClick={this.onDecreaseForceButtonClick}
+              content="decrease"
+              icon="minus"
+              labelPosition="right"
+              as="a"
+            />
+            <Button
+              fluid
+              onClick={this.onNewForceButtonClick}
+              style={{ color: COLORS.WHITE, background: driving ? COLORS.GREEN : COLORS.RED }}
+            >
+              {submitButtonText}
+            </Button>
           </Form.Group>
           <Form.Field>
-            <Button onClick={this.onNewForceButtonClick}>{this.props.submitButtonText}</Button>
+
           </Form.Field>
         </Form>
       </Box>
