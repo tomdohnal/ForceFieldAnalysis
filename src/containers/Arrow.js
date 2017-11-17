@@ -78,7 +78,7 @@ class Arrow extends Component<Props, State> {
             </Form>
             :
             <Box>
-              <Text fontSize="18px">{name}</Text>
+              <Text fontSize="15px">{name}</Text>
               <EditIcon
                 size="18"
                 style={{ verticalAlign: 'top', marginLeft: '4px', cursor: 'pointer' }}
@@ -125,7 +125,7 @@ class Arrow extends Component<Props, State> {
           >
             <Icon
               name="plus"
-              size="big"
+              size="large"
               disabled={strength === MAX_STRENGTH}
               style={{ cursor: `${strength < MAX_STRENGTH ? 'pointer' : 'initial'}` }}
               onClick={this.onIncreaseArrowIconClick}
@@ -133,7 +133,7 @@ class Arrow extends Component<Props, State> {
             <Text fontSize="18px">{strength}</Text>
             <Icon
               name="minus"
-              size="big"
+              size="large"
               disabled={strength === MIN_STRENGTH}
               style={{ cursor: `${strength > MIN_STRENGTH ? 'pointer' : 'initial'}` }}
               onClick={this.onDecreaseArrowIconClick}
