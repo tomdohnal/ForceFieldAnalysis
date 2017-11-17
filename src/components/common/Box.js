@@ -16,6 +16,8 @@ const boxStyles = ({
   marginTop,
   overflowX,
   overflowY,
+  border,
+  zIndex,
 }) => ({
   width,
   height,
@@ -32,6 +34,8 @@ const boxStyles = ({
   marginTop,
   overflowX,
   overflowY,
+  border,
+  zIndex,
 });
 
 const Box = createComponent(boxStyles);
