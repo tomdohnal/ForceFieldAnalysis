@@ -11,6 +11,20 @@
         height: 100%;
         margin: 0;
       }
+      @media (max-width: 1199px) {
+        #root {
+          display: none;
+        }
+      }
+      @media (min-width: 1200px) {
+        #smallDevicesError {
+          display: none;
+          height: 100%;
+        }
+        p {
+          text-align: center;
+        }
+      }
     </style>
     <title>Force Field Analysis</title>
   </head>
@@ -19,5 +33,8 @@
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
+    <div id="smallDevicesError">
+      <p>Unfortunately, this app only runs on devices with at least 1200px width.</p>
+    </div>
   </body>
 </html>

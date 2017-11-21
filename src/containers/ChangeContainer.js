@@ -46,7 +46,7 @@ class ChangeContainer extends Component<Props, State> {
     const { change: { name, description }, onNameChange, onDescriptionChange } = this.props;
 
     return (
-      <Box padding="20px 16px" color={COLORS.BLUE} height="100%">
+      <Box padding="20px 16px" backgroundColor={COLORS.BLUE} height="100%">
         {this.state.editChangeName ?
           <Form onSubmit={this.onNameFormSubmit}>
             <Form.Group>

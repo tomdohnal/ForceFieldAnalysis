@@ -3,38 +3,80 @@ import { createComponent } from 'react-fela';
 const boxStyles = ({
   width,
   height,
-  color,
+
+  display,
   position,
+  textAlign,
+
   top,
   right,
   bottom,
   left,
-  display,
-  textAlign,
+
+  margin,
+  marginTop,
+  marginRight,
+  marginBottom,
+  marginLeft,
+
+  backgroundColor,
+  color,
+
   padding,
   paddingTop,
-  marginTop,
+  paddingRight,
+  paddingBottom,
+  paddingLeft,
+
+  border,
+  borderTop,
+  borderRight,
+  borderBottom,
+  borderLeft,
+
+  overflow,
   overflowX,
   overflowY,
-  border,
+
   zIndex,
 }) => ({
   width,
   height,
-  backgroundColor: color,
+
+  display,
   position,
+  textAlign,
+
   top,
   right,
   bottom,
   left,
-  display,
-  textAlign,
+
+  margin,
+  marginTop,
+  marginRight,
+  marginBottom,
+  marginLeft,
+
+  backgroundColor,
+  color,
+
   padding,
   paddingTop,
-  marginTop,
+  paddingRight,
+  paddingBottom,
+  paddingLeft,
+
+  border,
+  borderTop,
+  borderRight,
+  borderBottom,
+  borderLeft,
+
+  overflow,
   overflowX,
   overflowY,
-  border,
+
   zIndex,
 });
 

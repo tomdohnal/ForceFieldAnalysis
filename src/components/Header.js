@@ -30,7 +30,7 @@ class Header extends Component<any, State> {
           <Box
             position="absolute"
             zIndex="999"
-            color={COLORS.WHITE}
+            backgroundColor={COLORS.WHITE}
             width="500px"
             right="16px"
             padding="16px"

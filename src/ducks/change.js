@@ -1,4 +1,5 @@
 // @flow
+import { createReducer } from '../helpers';
 
 export const SET_CHANGE_NAME: string = 'CHANGE/SET_CHANGE_NAME';
 export const SET_CHANGE_DESCRIPTION: string = 'CHANGE/SET_CHANGE_DESCRIPTION';
@@ -8,32 +9,35 @@ export type Change = {
   description?: string,
 }
 
-type ChangeAction = {
-  type: typeof SET_CHANGE_NAME | typeof SET_CHANGE_DESCRIPTION,
+type SetChangeNameAction = {
+  type: typeof SET_CHANGE_NAME,
   payload: Change,
 }
 
-export default (state: Change = {}, action: ChangeAction): Change => {
-  switch (action.type) {
-  case SET_CHANGE_NAME:
-    return { ...state, name: action.payload.name };
-  case SET_CHANGE_DESCRIPTION:
-    return { ...state, description: action.payload.description };
-  default:
-    return state;
-  }
-};
+type SetChangeDescriptionAction = {
+  type: typeof SET_CHANGE_DESCRIPTION,
+  payload: Change,
+}
 
-export const setChangeName = (name: string): ChangeAction => ({
+export const setChangeName = (name: string): SetChangeNameAction => ({
   type: SET_CHANGE_NAME,
   payload: {
     name,
   },
 });
 
-export const setChangeDescription = (description: string): ChangeAction => ({
+export const setChangeDescription = (description: string): SetChangeDescriptionAction => ({
   type: SET_CHANGE_DESCRIPTION,
   payload: {
     description,
   },
+});
+
+export default createReducer({}, {
+  [SET_CHANGE_NAME]: (state: Change, action: SetChangeNameAction) => ({
+    ...state, name: action.payload.name,
+  }),
+  [SET_CHANGE_DESCRIPTION]: (state: Change, action: SetChangeDescriptionAction) => ({
+    ...state, description: action.payload.description,
+  }),
 });

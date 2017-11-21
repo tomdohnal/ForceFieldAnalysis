@@ -10,7 +10,7 @@ type Props = {
 }
 
 const DrivingForceArrow = ({
-  force
+  force,
 }: Props) => (
   <Arrow
     force={force}
