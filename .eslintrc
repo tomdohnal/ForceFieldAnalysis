@@ -3,10 +3,11 @@
     "document": true
   },
   "extends": [
-    "plugin:flowtype/recommended"
+    "plugin:flowtype/recommended",
+    "plugin:jest/recommended"
   ],
   "plugins": [
-    "flowtype"
+    "flowtype", "jest"
   ],
   "rules": {
     "indent": ["error", 2],
@@ -18,5 +19,8 @@
     "class-methods-use-this": 0,
     "react/sort-comp": 0,
     "jsx-a11y/label-has-for": 0
+  },
+  "env": {
+    "jest": true
   }
 }
