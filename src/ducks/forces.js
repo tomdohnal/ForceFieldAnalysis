@@ -55,7 +55,7 @@ type DecreaseForceAction = {
   }
 }
 
-const addForce = (name: string, strength: number, driving: boolean): AddForceAction => ({
+export const addForce = (name: string, strength: number, driving: boolean): AddForceAction => ({
   type: ADD_FORCE,
   payload: {
     id: shortid.generate(),
