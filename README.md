@@ -1,4 +1,4 @@
-#Force Field Analysis#
+# Force Field Analysis #
 
 Force Field Analysis is a decision-making tool. Originally created in 1940s by psychologist Kurt Lewin, it is widely used in business for making decisions. 
 
