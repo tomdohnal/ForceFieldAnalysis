@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DrivingForceArrow renders correctly with force and color prop 1`] = `
+<Connect(Arrow)
+  color="#859900"
+  force={5}
+/>
+`;
+
+exports[`DrivingForceArrow renders correctly with force prop 1`] = `
+<Connect(Arrow)
+  color="#859900"
+  force={5}
+/>
+`;
