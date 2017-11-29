@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DrivingForcesContainer renders correctly 1`] = `
+<Connect(ForcesContainer)
+  driving={true}
+  submitButtonText="Create Driving Force"
+/>
+`;

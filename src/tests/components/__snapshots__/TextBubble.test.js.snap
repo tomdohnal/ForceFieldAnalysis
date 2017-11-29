@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextBubble renders correctly left TextBubble 1`] = `
+<textBubbleStyles
+  color="#FFF"
+  left={true}
+  theme={Object {}}
+/>
+`;
+
+exports[`TextBubble renders correctly right TextBubble 1`] = `
+<textBubbleStyles
+  color="#FFF"
+  theme={Object {}}
+/>
+`;

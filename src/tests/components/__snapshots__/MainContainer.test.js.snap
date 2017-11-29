@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainContainer renders correctly 1`] = `
+<Grid
+  style={
+    Object {
+      "margin": 0,
+      "minHeight": "calc(100% - 60px",
+    }
+  }
+>
+  <GridRow
+    style={
+      Object {
+        "padding": "8px",
+      }
+    }
+  >
+    <GridColumn
+      width={6}
+    >
+      <DrivingForcesContainer />
+    </GridColumn>
+    <GridColumn
+      width={4}
+    >
+      <Connect(ChangeContainer) />
+    </GridColumn>
+    <GridColumn
+      width={6}
+    >
+      <HinderingForcesContainer />
+    </GridColumn>
+  </GridRow>
+</Grid>
+`;

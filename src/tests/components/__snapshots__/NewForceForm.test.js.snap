@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewForceForm renders correctly 1`] = `
+<form
+  className="ui form"
+  onSubmit={[Function]}
+>
+  <FormField>
+    <label>
+      Force name:
+    </label>
+    <Input
+      error={false}
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </FormField>
+  <FormGroup
+    inline={true}
+  >
+    <label
+      style={
+        Object {
+          "whiteSpace": "nowrap",
+        }
+      }
+    >
+      Force strength:
+    </label>
+    <Button
+      as="a"
+      basic={true}
+      content="Increase"
+      disabled={false}
+      icon="plus"
+      labelPosition="left"
+      onClick={[Function]}
+    />
+    <text
+      fontSize="24px"
+      padding="0 12px"
+    >
+      1
+    </text>
+    <Button
+      as="a"
+      basic={true}
+      content="decrease"
+      disabled={true}
+      icon="minus"
+      labelPosition="right"
+      onClick={[Function]}
+    />
+  </FormGroup>
+  <FormField>
+    <Button
+      as="button"
+      fluid={true}
+      onClick={[Function]}
+      style={
+        Object {
+          "background": "#FFF",
+          "color": "#fff",
+        }
+      }
+    >
+      Submit Force
+    </Button>
+  </FormField>
+</form>
+`;
