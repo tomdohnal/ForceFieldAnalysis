@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Arrow rendering renders driving arrow correctly 1`] = `
+<boxStyles>
+  <textBubbleStyles
+    color="#FFF"
+    left={false}
+  >
+    <boxStyles>
+      <text
+        fontSize="15px"
+      >
+        the name of the force
+      </text>
+      <TiEdit
+        onClick={[Function]}
+        size="18"
+        style={
+          Object {
+            "cursor": "pointer",
+            "marginLeft": "4px",
+            "verticalAlign": "top",
+          }
+        }
+      />
+    </boxStyles>
+  </textBubbleStyles>
+  <boxStyles
+    position="relative"
+  >
+    <Icon
+      as="i"
+      name="delete"
+      onClick={[Function]}
+      size="big"
+      style={
+        Object {
+          "color": "#dc2f2f",
+          "cursor": "pointer",
+          "position": "absolute",
+          "right": "250px",
+          "top": "calc(50% - 14px)",
+        }
+      }
+    />
+    <svg
+      height={80}
+      viewBox="0 0 250 80"
+      width={250}
+    >
+      <Rectangle
+        color="#FFF"
+        height={40}
+        width={214}
+        x={0}
+        y={20}
+      />
+      <Triangle
+        color="#FFF"
+        height={80}
+        width={36}
+        x="214,0"
+        y="214,80"
+        z="250,40"
+      />
+    </svg>
+    <boxStyles
+      left={false}
+      position="absolute"
+      right="36px"
+      top="60px"
+    >
+      <Icon
+        as="i"
+        disabled={false}
+        name="plus"
+        onClick={[Function]}
+        size="large"
+        style={
+          Object {
+            "cursor": "pointer",
+          }
+        }
+      />
+      <text
+        fontSize="18px"
+      >
+        5
+      </text>
+      <Icon
+        as="i"
+        disabled={false}
+        name="minus"
+        onClick={[Function]}
+        size="large"
+        style={
+          Object {
+            "cursor": "pointer",
+          }
+        }
+      />
+    </boxStyles>
+  </boxStyles>
+  <Divider
+    hidden={true}
+  />
+</boxStyles>
+`;
+
+exports[`Arrow rendering renders hindering arrow correctly 1`] = `
+<boxStyles>
+  <textBubbleStyles
+    color="#FFF"
+    left={false}
+  >
+    <boxStyles>
+      <text
+        fontSize="15px"
+      >
+        the name of the force
+      </text>
+      <TiEdit
+        onClick={[Function]}
+        size="18"
+        style={
+          Object {
+            "cursor": "pointer",
+            "marginLeft": "4px",
+            "verticalAlign": "top",
+          }
+        }
+      />
+    </boxStyles>
+  </textBubbleStyles>
+  <boxStyles
+    position="relative"
+  >
+    <Icon
+      as="i"
+      name="delete"
+      onClick={[Function]}
+      size="big"
+      style={
+        Object {
+          "color": "#dc2f2f",
+          "cursor": "pointer",
+          "position": "absolute",
+          "right": "250px",
+          "top": "calc(50% - 14px)",
+        }
+      }
+    />
+    <svg
+      height={80}
+      viewBox="0 0 250 80"
+      width={250}
+    >
+      <Rectangle
+        color="#FFF"
+        height={40}
+        width={214}
+        x={0}
+        y={20}
+      />
+      <Triangle
+        color="#FFF"
+        height={80}
+        width={36}
+        x="214,0"
+        y="214,80"
+        z="250,40"
+      />
+    </svg>
+    <boxStyles
+      left={false}
+      position="absolute"
+      right="36px"
+      top="60px"
+    >
+      <Icon
+        as="i"
+        disabled={false}
+        name="plus"
+        onClick={[Function]}
+        size="large"
+        style={
+          Object {
+            "cursor": "pointer",
+          }
+        }
+      />
+      <text
+        fontSize="18px"
+      >
+        5
+      </text>
+      <Icon
+        as="i"
+        disabled={false}
+        name="minus"
+        onClick={[Function]}
+        size="large"
+        style={
+          Object {
+            "cursor": "pointer",
+          }
+        }
+      />
+    </boxStyles>
+  </boxStyles>
+  <Divider
+    hidden={true}
+  />
+</boxStyles>
+`;

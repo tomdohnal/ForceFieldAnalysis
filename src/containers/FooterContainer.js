@@ -12,7 +12,7 @@ type Props = {
   hinderingForcesCount: number,
 }
 
-const FooterContainer = ({
+export const FooterContainer = ({
   drivingForcesCount, hinderingForcesCount,
 }: Props) => {
   let centerText: string = '';
@@ -36,7 +36,7 @@ const FooterContainer = ({
 };
 
 
-const mapStateToProps = (state: ReduxState) => {
+export const mapStateToProps = (state: ReduxState) => {
   const countForcesTotal = (driving: boolean) => (total: number, force: Force) => {
     if (force.driving === driving) {
       return total + force.strength;

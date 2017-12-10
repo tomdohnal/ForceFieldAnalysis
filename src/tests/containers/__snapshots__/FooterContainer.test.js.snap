@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FooterContainer renders correctly 1`] = `
+<footerStyles>
+  <Grid>
+    <GridColumn
+      width={6}
+    >
+      <text
+        color="#FFF"
+        fontSize="54px"
+      >
+        Driving forces: 
+        0
+      </text>
+    </GridColumn>
+    <GridColumn
+      textAlign="center"
+      width={4}
+    >
+      <text
+        color="#FFF"
+        fontSize="24px"
+      >
+        Create some forces and start the analysis!
+      </text>
+    </GridColumn>
+    <GridColumn
+      textAlign="right"
+      width={6}
+    >
+      <text
+        color="#FFF"
+        fontSize="54px"
+      >
+        Hindering forces: 
+        0
+      </text>
+    </GridColumn>
+  </Grid>
+</footerStyles>
+`;

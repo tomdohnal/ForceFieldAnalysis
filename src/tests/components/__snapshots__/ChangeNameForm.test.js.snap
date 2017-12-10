@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChangeNameForm rendering renders correctly 1`] = `
+<Form
+  as="form"
+  onSubmit={[Function]}
+>
+  <FormGroup>
+    <Input
+      onChange={[Function]}
+      placeholder="Enter the name of your change"
+      size="massive"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+      type="text"
+      value="the name of the force"
+    />
+  </FormGroup>
+  <FormGroup>
+    <Button
+      as="button"
+    >
+      Submit Name
+    </Button>
+  </FormGroup>
+</Form>
+`;

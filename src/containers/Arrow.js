@@ -24,7 +24,7 @@ type State = {
   editArrow: boolean,
 }
 
-class Arrow extends Component<Props, State> {
+export class Arrow extends Component<Props, State> {
   state = {
     editArrow: false,
   };
@@ -45,8 +45,8 @@ class Arrow extends Component<Props, State> {
     }
   };
 
-  onEditArrowInputChange = (event, data) => {
-    this.props.setForceName(this.props.force.id, data.value);
+  onEditArrowInputChange = (e: SyntheticEvent<HTMLInputElement>, { value }: { value: string }) => {
+    this.props.setForceName(this.props.force.id, value);
   };
 
   onEditArrowNameClick = () => {

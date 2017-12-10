@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChangeContainer rendering renders correctly with change name and description 1`] = `
+<boxStyles
+  backgroundColor="#268bd2"
+  height="100%"
+  padding="20px 16px"
+>
+  <boxStyles
+    marginTop="16px"
+    textAlign="center"
+  >
+    <text
+      color="#fff"
+      fontSize="48px"
+    >
+      change name
+    </text>
+    <boxStyles
+      display="inline"
+    >
+      <TiEdit
+        color="#fff"
+        onClick={[Function]}
+        size="28"
+        style={
+          Object {
+            "cursor": "pointer",
+            "marginLeft": "8px",
+            "verticalAlign": "top",
+          }
+        }
+      />
+    </boxStyles>
+  </boxStyles>
+  <boxStyles
+    marginTop="16px"
+  >
+    <text
+      color="#fff"
+      fontSize="18px"
+    >
+      change description
+    </text>
+    <boxStyles
+      display="inline"
+    >
+      <TiEdit
+        color="#fff"
+        onClick={[Function]}
+        size="18"
+        style={
+          Object {
+            "cursor": "pointer",
+            "marginLeft": "4px",
+            "verticalAlign": "top",
+          }
+        }
+      />
+    </boxStyles>
+  </boxStyles>
+</boxStyles>
+`;
+
+exports[`ChangeContainer rendering renders correctly with no change name and description 1`] = `
+<boxStyles
+  backgroundColor="#268bd2"
+  height="100%"
+  padding="20px 16px"
+>
+  <ChangeNameForm
+    inputValue=""
+    onInputChange={[Function]}
+    onSubmit={[Function]}
+  />
+  <boxStyles
+    marginTop="16px"
+  >
+    <ChangeDescriptionForm
+      inputValue=""
+      onInputChange={[Function]}
+      onSubmit={[Function]}
+    />
+  </boxStyles>
+</boxStyles>
+`;

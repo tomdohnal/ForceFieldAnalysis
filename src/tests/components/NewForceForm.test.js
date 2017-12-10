@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import { mockShallowComponentMethod } from '../helpers';
 import NewForceForm from '../../components/NewForceForm';
 import { MIN_STRENGTH, MAX_STRENGTH } from '../../constants/index';
 
@@ -14,66 +15,94 @@ const ShallowForm = shallow(
   />,
 );
 
-beforeEach(() => {
-  ShallowForm.setState(ShallowForm.instance().defaultState);
-});
-
 describe('NewForceForm', () => {
-  it('renders correctly', () => {
-    const tree = ShallowForm.dive();
+  describe('rendering', () => {
+    it('renders correctly', () => {
+      const tree = ShallowForm.dive();
 
-    expect(tree).toMatchSnapshot();
+      expect(tree).toMatchSnapshot();
+    });
   });
 
-  it('can increase force strength', () => {
-    ShallowForm.instance().onIncreaseForceButtonClick();
+  describe('methods', () => {
+    beforeEach(() => {
+      ShallowForm.setState(ShallowForm.instance().defaultState);
+    });
 
-    expect(ShallowForm.state('newForceStrength')).toBe(2);
+    it('can increase force strength', () => {
+      ShallowForm.instance().onIncreaseForceButtonClick();
+
+      expect(ShallowForm.state('newForceStrength')).toBe(2);
+    });
+
+    it('has a max force strength limit', () => {
+      ShallowForm.setState({ newForceStrength: MAX_STRENGTH });
+
+      ShallowForm.instance().onIncreaseForceButtonClick();
+
+      expect(ShallowForm.state('newForceStrength')).toBe(MAX_STRENGTH);
+    });
+
+    it('can decrease force strength', () => {
+      ShallowForm.setState({ newForceStrength: MIN_STRENGTH + 1 });
+
+      ShallowForm.instance().onDecreaseForceButtonClick();
+
+      expect(ShallowForm.state('newForceStrength')).toBe(1);
+    });
+
+    it('has a min force strength limit', () => {
+      ShallowForm.setState({ newForceStrength: MIN_STRENGTH });
+
+      ShallowForm.instance().onDecreaseForceButtonClick();
+
+      expect(ShallowForm.state('newForceStrength')).toBe(MIN_STRENGTH);
+    });
+
+    it('does throw an error when submitting without name', () => {
+      ShallowForm.instance().onNewForceButtonClick();
+
+      expect(ShallowForm.state('newForceError')).toBeTruthy();
+    });
   });
 
-  it('has a max force strength limit', () => {
-    ShallowForm.setState({ newForceStrength: MAX_STRENGTH });
+  describe('method triggering', () => {
+    it('triggers onNewForceInputChange when input is changed', () => {
+      mockShallowComponentMethod(ShallowForm, 'onNewForceInputChange');
 
-    ShallowForm.instance().onIncreaseForceButtonClick();
+      ShallowForm.find('Input').dive().find('input').simulate('change');
 
-    expect(ShallowForm.state('newForceStrength')).toBe(MAX_STRENGTH);
-  });
+      expect(ShallowForm.instance().onNewForceInputChange).toBeCalled();
+    });
 
-  it('can decrease force strength', () => {
-    ShallowForm.setState({ newForceStrength: MIN_STRENGTH + 1 });
+    it('triggers onIncreaseForceButtonClick when increase button clicked', () => {
+      mockShallowComponentMethod(ShallowForm, 'onIncreaseForceButtonClick');
 
-    ShallowForm.instance().onDecreaseForceButtonClick();
+      ShallowForm.dive().find('Button[content="Increase"]').dive().find('a')
+        .simulate('click');
 
-    expect(ShallowForm.state('newForceStrength')).toBe(1);
-  });
+      expect(ShallowForm.instance().onIncreaseForceButtonClick).toBeCalled();
+    });
 
-  it('has a min force strength limit', () => {
-    ShallowForm.setState({ newForceStrength: MIN_STRENGTH });
+    it('triggers onDecreaseForceButtonClick when increase button clicked', () => {
+      // can't test it due to a bug in semantic ui react
+      // it throws TypeError: Cannot read property 'preventDefault' of undefined
 
-    ShallowForm.instance().onDecreaseForceButtonClick();
+      /* mockShallowComponentMethod(ShallowForm, 'onDecreaseForceButtonClick');
 
-    expect(ShallowForm.state('newForceStrength')).toBe(MIN_STRENGTH);
-  });
+      ShallowForm.dive().find('Button[content="Decrease"]').dive().find('a')
+        .simulate('click');
 
-  it('updates state when input changes', () => {
-    const input = ShallowForm.find('Input').dive().find('input');
+      expect(ShallowForm.instance().onDecreaseForceButtonClick).toBeCalled(); */
+    });
 
-    input.simulate('change', { target: { value: 'the name' } });
+    it('triggers onNewForceButtonClick when the new force button is clicked', () => {
+      mockShallowComponentMethod(ShallowForm, 'onNewForceButtonClick');
 
-    expect(ShallowForm.state('newForceName')).toBe('the name');
-  });
+      ShallowForm.dive().find('Button[as="button"]').dive().find('button')
+        .simulate('click');
 
-  it('does throw an error when submitting without name', () => {
-    ShallowForm.instance().onNewForceButtonClick();
-
-    expect(ShallowForm.state('newForceError')).toBeTruthy();
-  });
-
-  it('triggers onFormSubmit when submitted', () => {
-    const tree = ShallowForm.dive();
-
-    tree.find('form').simulate('submit', { preventDefault: onFormSubmit });
-
-    expect(onFormSubmit).toHaveBeenCalled();
+      expect(ShallowForm.instance().onNewForceButtonClick).toBeCalled();
+    });
   });
 });

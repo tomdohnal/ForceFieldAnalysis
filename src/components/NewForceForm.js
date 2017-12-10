@@ -100,7 +100,7 @@ class NewForceForm extends Component<Props, State> {
             disabled={this.state.newForceStrength === MIN_STRENGTH}
             basic
             onClick={this.onDecreaseForceButtonClick}
-            content="decrease"
+            content="Decrease"
             icon="minus"
             labelPosition="right"
             as="a"

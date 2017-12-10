@@ -7,16 +7,9 @@ import { COLORS } from '../constants/styles';
 import DrivingForceArrow from '../components/DrivingForceArrow';
 import HinderingForceArrow from '../components/HinderingForceArrow';
 import { Box } from '../components/common';
-import { addDrivingForce, addHinderingForce, type Forces } from '../ducks/forces';
+import { addDrivingForce, addHinderingForce, type Forces, type Force } from '../ducks/forces';
 import { type ReduxState } from '../redux';
 import NewForceForm from '../components/NewForceForm';
-
-type State = {
-  newForceName: string,
-  newForceError: boolean,
-  newForceErrorText: string,
-  newForceStrength: number,
-};
 
 type Props = {
   driving: boolean,
@@ -25,7 +18,7 @@ type Props = {
   addForce: (name: string, strength: number) => void,
 };
 
-class ForcesContainer extends Component<Props, State> {
+export class ForcesContainer extends Component<Props> {
   renderForces() {
     return _.map(this.props.forces, force => (
       <Box key={force.id} >
@@ -53,11 +46,11 @@ class ForcesContainer extends Component<Props, State> {
   }
 }
 
-const mapStateToProps = (state: ReduxState, ownProps: Props) => ({
+export const mapStateToProps = (state: ReduxState, ownProps: Props) => ({
   forces: _.filter(state.forces, force => force.driving === ownProps.driving),
 });
 
-const mapDispatchToProps = (dispatch, ownProps: Props) => ({
+export const mapDispatchToProps = (dispatch, ownProps: Props) => ({
   addForce: (name: string, strength: number) => (
     ownProps.driving ?
       dispatch(addDrivingForce(name, strength)) :

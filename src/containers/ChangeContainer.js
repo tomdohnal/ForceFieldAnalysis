@@ -1,18 +1,19 @@
 // @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Form, Input, TextArea, Button } from 'semantic-ui-react';
 import EditIcon from 'react-icons/lib/ti/edit';
 
 import { COLORS } from '../constants/styles';
 import type { ReduxState } from '../redux/index';
 import { setChangeName, setChangeDescription, type Change } from '../ducks/change';
 import { Box, Text } from '../components/common/index';
+import ChangeNameForm from '../components/ChangeNameForm';
+import ChangeDescriptionForm from '../components/ChangeDescriptionForm';
 
 type Props = {
   change: Change,
-  onNameChange: (name: string) => void,
-  onDescriptionChange: (description: string) => void,
+  setChangeName: (name: string) => void,
+  setChangeDescription: (description: string) => void,
 };
 
 type State = {
@@ -20,7 +21,7 @@ type State = {
   editChangeDescription: boolean,
 };
 
-class ChangeContainer extends Component<Props, State> {
+export class ChangeContainer extends Component<Props, State> {
   state = {
     editChangeName: !this.props.change.name,
     editChangeDescription: !this.props.change.description,
@@ -42,26 +43,26 @@ class ChangeContainer extends Component<Props, State> {
     this.setState({ editChangeDescription: true });
   };
 
+  onNameChange = (e: SyntheticEvent<HTMLInputElement>, { value }: { value: string }): void => {
+    this.props.setChangeName(value);
+  };
+
+  onDescriptionChange =
+    (e: SyntheticEvent<HTMLInputElement>, { value }: { value: string }): void => {
+      this.props.setChangeDescription(value);
+    };
+
   render() {
-    const { change: { name, description }, onNameChange, onDescriptionChange } = this.props;
+    const { change: { name, description } } = this.props;
 
     return (
       <Box padding="20px 16px" backgroundColor={COLORS.BLUE} height="100%">
         {this.state.editChangeName ?
-          <Form onSubmit={this.onNameFormSubmit}>
-            <Form.Group>
-              <Input
-                size="massive"
-                style={{ width: '100%' }}
-                onChange={onNameChange}
-                placeholder="Enter the name of your change"
-                value={name || ''}
-              />
-            </Form.Group>
-            <Form.Group>
-              <Button>Submit Name</Button>
-            </Form.Group>
-          </Form>
+          <ChangeNameForm
+            onSubmit={this.onNameFormSubmit}
+            onInputChange={this.onNameChange}
+            inputValue={name || ''}
+          />
           :
           <Box marginTop="16px" textAlign="center">
             <Text color={COLORS.WHITE} fontSize="48px">{name}</Text>
@@ -77,20 +78,11 @@ class ChangeContainer extends Component<Props, State> {
         }
         {this.state.editChangeDescription ?
           <Box marginTop="16px">
-            <Form onSubmit={this.onDescriptionFormSubmit}>
-              <Form.Group>
-                <TextArea
-                  autoHeight
-                  onChange={onDescriptionChange}
-                  placeholder="Enter the description of your change (optional)"
-                  value={description || ''}
-                />
-              </Form.Group>
-              <Form.Group>
-                <Button>Submit Description</Button>
-                <Button compact size="mini">No description</Button>
-              </Form.Group>
-            </Form>
+            <ChangeDescriptionForm
+              onSubmit={this.onDescriptionFormSubmit}
+              onInputChange={this.onDescriptionChange}
+              inputValue={description || ''}
+            />
           </Box>
           :
           <Box marginTop="16px">
@@ -110,13 +102,8 @@ class ChangeContainer extends Component<Props, State> {
   }
 }
 
-const mapStateToProps = (state: ReduxState) => ({
+export const mapStateToProps = (state: ReduxState) => ({
   change: state.change,
 });
 
-const mapDispatchToProps = dispatch => ({
-  onNameChange: (event, data) => (dispatch(setChangeName(data.value))),
-  onDescriptionChange: (event, data) => (dispatch(setChangeDescription(data.value))),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(ChangeContainer);
+export default connect(mapStateToProps, { setChangeName, setChangeDescription })(ChangeContainer);

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChangeDescriptionForm rendering renders correctly 1`] = `
+<Form
+  as="form"
+  onSubmit={[Function]}
+>
+  <FormGroup>
+    <TextArea
+      as="textarea"
+      autoHeight={true}
+      onChange={[Function]}
+      placeholder="Enter the description of your change (optional)"
+      rows={3}
+      value="the description of the force"
+    />
+  </FormGroup>
+  <FormGroup>
+    <Button
+      as="button"
+    >
+      Submit Description
+    </Button>
+    <Button
+      as="button"
+      compact={true}
+      size="mini"
+    >
+      No description
+    </Button>
+  </FormGroup>
+</Form>
+`;

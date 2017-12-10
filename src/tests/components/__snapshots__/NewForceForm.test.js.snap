@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NewForceForm renders correctly 1`] = `
+exports[`NewForceForm rendering renders correctly 1`] = `
 <form
   className="ui form"
   onSubmit={[Function]}
@@ -46,7 +46,7 @@ exports[`NewForceForm renders correctly 1`] = `
     <Button
       as="a"
       basic={true}
-      content="decrease"
+      content="Decrease"
       disabled={true}
       icon="minus"
       labelPosition="right"
