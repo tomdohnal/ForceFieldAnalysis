@@ -7,7 +7,7 @@ import { COLORS } from '../constants/styles';
 import DrivingForceArrow from '../components/DrivingForceArrow';
 import HinderingForceArrow from '../components/HinderingForceArrow';
 import { Box } from '../components/common';
-import { addDrivingForce, addHinderingForce, type Forces, type Force } from '../ducks/forces';
+import { addDrivingForce, addHinderingForce, type Forces } from '../ducks/forces';
 import { type ReduxState } from '../redux';
 import NewForceForm from '../components/NewForceForm';
 
