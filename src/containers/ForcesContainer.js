@@ -50,7 +50,7 @@ export const mapStateToProps = (state: ReduxState, ownProps: Props) => ({
   forces: _.filter(state.forces, force => force.driving === ownProps.driving),
 });
 
-export const mapDispatchToProps = (dispatch, ownProps: Props) => ({
+export const mapDispatchToProps = (dispatch: Function, ownProps: Props) => ({
   addForce: (name: string, strength: number) => (
     ownProps.driving ?
       dispatch(addDrivingForce(name, strength)) :
