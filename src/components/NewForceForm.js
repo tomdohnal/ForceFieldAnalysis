@@ -24,6 +24,8 @@ type InputData = {
 }
 
 class NewForceForm extends Component<Props, State> {
+  newForceInput: ?HTMLInputElement;
+
   defaultState = {
     newForceName: '',
     newForceError: false,
@@ -66,6 +68,8 @@ class NewForceForm extends Component<Props, State> {
     } else {
       this.props.onFormSubmit(this.state.newForceName, this.state.newForceStrength);
 
+      this.newForceInput && this.newForceInput.focus();
+
       this.setState(this.defaultState);
     }
   };
@@ -81,6 +85,7 @@ class NewForceForm extends Component<Props, State> {
             onChange={this.onNewForceInputChange}
             value={this.state.newForceName}
             error={this.state.newForceError}
+            ref={(input) => { this.newForceInput = input; }}
           />
           {this.state.newForceError ? <Label basic color="red" pointing>{this.state.newForceErrorText}</Label> : ''}
         </Form.Field>

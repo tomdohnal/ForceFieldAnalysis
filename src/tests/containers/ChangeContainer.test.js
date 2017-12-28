@@ -67,6 +67,22 @@ describe('ChangeContainer', () => {
       expect(ShallowChangeContainer.state('editChangeDescription')).toBeFalsy();
     });
 
+    it('closes the description form on No Description Button click', () => {
+      const mockEvent = { preventDefault() {} };
+
+      ShallowChangeContainer.instance().onNoDescriptionButtonClick(mockEvent);
+
+      expect(ShallowChangeContainer.state('editChangeDescription')).toBeFalsy();
+    });
+
+    it('clears the description from on No Description Button click', () => {
+      const mockEvent = { preventDefault() {} };
+
+      ShallowChangeContainer.instance().onNoDescriptionButtonClick(mockEvent);
+
+      expect(ShallowChangeContainer.instance().props.setChangeDescription).toBeCalledWith('');
+    });
+
     it('enables you to edit the description', () => {
       ShallowChangeContainer.instance().onEditDescriptionClick();
 

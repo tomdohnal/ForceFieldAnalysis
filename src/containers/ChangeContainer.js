@@ -39,6 +39,14 @@ export class ChangeContainer extends Component<Props, State> {
     this.setState({ editChangeDescription: false });
   };
 
+  onNoDescriptionButtonClick = (e: SyntheticEvent<HTMLButtonElement>): void => {
+    e.preventDefault();
+
+    this.props.setChangeDescription('');
+
+    this.setState({ editChangeDescription: false });
+  };
+
   onEditDescriptionClick = (): void => {
     this.setState({ editChangeDescription: true });
   };
@@ -80,6 +88,7 @@ export class ChangeContainer extends Component<Props, State> {
           <Box marginTop="16px">
             <ChangeDescriptionForm
               onSubmit={this.onDescriptionFormSubmit}
+              onNoDescriptionButtonClick={this.onNoDescriptionButtonClick}
               onInputChange={this.onDescriptionChange}
               inputValue={description || ''}
             />

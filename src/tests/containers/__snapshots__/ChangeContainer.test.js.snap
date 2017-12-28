@@ -79,6 +79,7 @@ exports[`ChangeContainer rendering renders correctly with no change name and des
     <ChangeDescriptionForm
       inputValue=""
       onInputChange={[Function]}
+      onNoDescriptionButtonClick={[Function]}
       onSubmit={[Function]}
     />
   </boxStyles>

@@ -4,12 +4,13 @@ import { Form, TextArea, Button } from 'semantic-ui-react';
 
 type Props = {
   onSubmit: () => void,
+  onNoDescriptionButtonClick: () => void,
   onInputChange: (e: SyntheticEvent<HTMLInputElement>, value: { value: string }) => void,
   inputValue: ?string,
 }
 
 const ChangeDescriptionForm = ({
-  onSubmit, onInputChange, inputValue,
+  onSubmit, onInputChange, onNoDescriptionButtonClick, inputValue,
 }: Props) => (
   <Form onSubmit={onSubmit}>
     <Form.Group>
@@ -22,7 +23,7 @@ const ChangeDescriptionForm = ({
     </Form.Group>
     <Form.Group>
       <Button>Submit Description</Button>
-      <Button compact size="mini">No description</Button>
+      <Button onClick={onNoDescriptionButtonClick} compact size="mini">No description</Button>
     </Form.Group>
   </Form>
 );
