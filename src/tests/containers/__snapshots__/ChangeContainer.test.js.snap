@@ -70,6 +70,7 @@ exports[`ChangeContainer rendering renders correctly with no change name and des
 >
   <ChangeNameForm
     inputValue=""
+    newlyDisplayed={false}
     onInputChange={[Function]}
     onSubmit={[Function]}
   />
@@ -78,6 +79,7 @@ exports[`ChangeContainer rendering renders correctly with no change name and des
   >
     <ChangeDescriptionForm
       inputValue=""
+      newlyDisplayed={false}
       onInputChange={[Function]}
       onNoDescriptionButtonClick={[Function]}
       onSubmit={[Function]}

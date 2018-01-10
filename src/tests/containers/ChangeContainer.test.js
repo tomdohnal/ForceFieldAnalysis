@@ -59,6 +59,7 @@ describe('ChangeContainer', () => {
       ShallowChangeContainer.instance().onEditNameClick();
 
       expect(ShallowChangeContainer.state('editChangeName')).toBeTruthy();
+      expect(ShallowChangeContainer.state('isEditChangeNameNewlyDisplayed')).toBeTruthy();
     });
 
     it('submits description form', () => {
@@ -87,6 +88,7 @@ describe('ChangeContainer', () => {
       ShallowChangeContainer.instance().onEditDescriptionClick();
 
       expect(ShallowChangeContainer.state('editChangeDescription')).toBeTruthy();
+      expect(ShallowChangeContainer.state('isEditChangeDescriptionNewlyDisplayed')).toBeTruthy();
     });
 
     it('calls the setChangeName actions creator when onNameChange is called', () => {

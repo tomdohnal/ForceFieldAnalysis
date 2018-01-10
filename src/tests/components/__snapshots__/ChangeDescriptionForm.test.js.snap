@@ -10,6 +10,7 @@ exports[`ChangeDescriptionForm rendering renders correctly 1`] = `
       as="textarea"
       autoHeight={true}
       onChange={[Function]}
+      onFocus={[Function]}
       placeholder="Enter the description of your change (optional)"
       rows={3}
       value="the description of the force"

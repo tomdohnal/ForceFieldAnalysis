@@ -1,16 +1,18 @@
 // @flow
 import React from 'react';
 import { Form, TextArea, Button } from 'semantic-ui-react';
+import { moveCaretAtTheEnd } from '../helpers';
 
 type Props = {
   onSubmit: () => void,
-  onNoDescriptionButtonClick: () => void,
+  onNoDescriptionButtonClick: (e: SyntheticEvent<HTMLButtonElement>) => void,
   onInputChange: (e: SyntheticEvent<HTMLInputElement>, value: { value: string }) => void,
   inputValue: ?string,
+  newlyDisplayed: boolean,
 }
 
 const ChangeDescriptionForm = ({
-  onSubmit, onInputChange, onNoDescriptionButtonClick, inputValue,
+  onSubmit, onInputChange, onNoDescriptionButtonClick, inputValue, newlyDisplayed,
 }: Props) => (
   <Form onSubmit={onSubmit}>
     <Form.Group>
@@ -19,6 +21,8 @@ const ChangeDescriptionForm = ({
         onChange={onInputChange}
         placeholder="Enter the description of your change (optional)"
         value={inputValue}
+        onFocus={moveCaretAtTheEnd}
+        autoFocus={newlyDisplayed}
       />
     </Form.Group>
     <Form.Group>

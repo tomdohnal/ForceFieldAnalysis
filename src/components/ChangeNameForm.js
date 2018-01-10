@@ -2,14 +2,17 @@
 import React from 'react';
 import { Form, Input, Button } from 'semantic-ui-react';
 
+import { moveCaretAtTheEnd } from '../helpers';
+
 type Props = {
   onSubmit: () => void,
   onInputChange: (e: SyntheticEvent<HTMLInputElement>, value: { value: string }) => void,
   inputValue: ?string,
+  newlyDisplayed: boolean,
 }
 
 const ChangeNameForm = ({
-  onSubmit, onInputChange, inputValue,
+  onSubmit, onInputChange, inputValue, newlyDisplayed,
 }: Props) => (
   <Form onSubmit={onSubmit}>
     <Form.Group>
@@ -19,6 +22,8 @@ const ChangeNameForm = ({
         onChange={onInputChange}
         placeholder="Enter the name of your change"
         value={inputValue}
+        onFocus={moveCaretAtTheEnd}
+        autoFocus={newlyDisplayed}
       />
     </Form.Group>
     <Form.Group>

@@ -19,12 +19,16 @@ type Props = {
 type State = {
   editChangeName: boolean,
   editChangeDescription: boolean,
+  isEditChangeDescriptionNewlyDisplayed: boolean,
+  isEditChangeNameNewlyDisplayed: boolean,
 };
 
 export class ChangeContainer extends Component<Props, State> {
   state = {
     editChangeName: !this.props.change.name,
     editChangeDescription: !this.props.change.description,
+    isEditChangeDescriptionNewlyDisplayed: false,
+    isEditChangeNameNewlyDisplayed: false,
   };
 
   onNameFormSubmit = (): void => {
@@ -32,7 +36,7 @@ export class ChangeContainer extends Component<Props, State> {
   };
 
   onEditNameClick = (): void => {
-    this.setState({ editChangeName: true });
+    this.setState({ editChangeName: true, isEditChangeNameNewlyDisplayed: true });
   };
 
   onDescriptionFormSubmit = (): void => {
@@ -48,7 +52,7 @@ export class ChangeContainer extends Component<Props, State> {
   };
 
   onEditDescriptionClick = (): void => {
-    this.setState({ editChangeDescription: true });
+    this.setState({ editChangeDescription: true, isEditChangeDescriptionNewlyDisplayed: true });
   };
 
   onNameChange = (e: SyntheticEvent<HTMLInputElement>, { value }: { value: string }): void => {
@@ -70,6 +74,7 @@ export class ChangeContainer extends Component<Props, State> {
             onSubmit={this.onNameFormSubmit}
             onInputChange={this.onNameChange}
             inputValue={name || ''}
+            newlyDisplayed={this.state.isEditChangeNameNewlyDisplayed}
           />
           :
           <Box marginTop="16px" textAlign="center">
@@ -91,6 +96,7 @@ export class ChangeContainer extends Component<Props, State> {
               onNoDescriptionButtonClick={this.onNoDescriptionButtonClick}
               onInputChange={this.onDescriptionChange}
               inputValue={description || ''}
+              newlyDisplayed={this.state.isEditChangeDescriptionNewlyDisplayed}
             />
           </Box>
           :
