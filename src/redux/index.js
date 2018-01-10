@@ -1,5 +1,8 @@
 // @flow
 import { combineReducers, createStore } from 'redux';
+import _ from 'lodash';
+
+import { loadState, saveState } from './localStorage';
 
 import forcesReducer, { type Forces } from '../ducks/forces';
 import changeReducer, { type Change } from '../ducks/change';
@@ -24,4 +27,10 @@ const rootReducer = (state, action) => {
   return appReducer(state, action);
 };
 
-export const store = createStore(rootReducer);
+const persistedState = loadState();
+
+export const store = createStore(rootReducer, persistedState);
+
+store.subscribe(_.throttle(() => {
+  saveState(store.getState());
+}, 1000));

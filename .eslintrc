@@ -1,6 +1,7 @@
 {
   "globals": {
-    "document": true
+    "document": true,
+    "localStorage": true
   },
   "extends": [
     "plugin:flowtype/recommended",
