@@ -10,6 +10,7 @@ import { type Force, deleteForce, setForceName, increaseForce, decreaseForce } f
 import { Text, Box } from '../components/common/index';
 import { Rectangle, Triangle } from '../components/svg/index';
 import TextBubble from '../components/TextBubble';
+import { moveCaretAtTheEnd } from '../helpers';
 
 type Props = {
   color: string,
@@ -71,7 +72,7 @@ export class Arrow extends Component<Props, State> {
         <TextBubble color={color} left={!driving}>
           {this.state.editArrow ?
             <Form onSubmit={this.onEditArrowNameFormSubmit}>
-              <Input autoFocus size="small" value={name} onChange={this.onEditArrowInputChange} action>
+              <Input autoFocus size="small" value={name} onChange={this.onEditArrowInputChange} onFocus={moveCaretAtTheEnd} action>
                 <input style={{ width: 'inherit' }} />
                 <Button size="small">Save changes</Button>
               </Input>
