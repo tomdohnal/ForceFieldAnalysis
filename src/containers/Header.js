@@ -28,9 +28,7 @@ export class Header extends Component<Props, State> {
   onResetButtonClick = (e: SyntheticEvent<HTMLButtonElement>) => {
     this.props.resetState();
 
-    if (e.target instanceof HTMLButtonElement) {
-      e.target.blur();
-    }
+    window.location.reload();
   };
 
   onMakeDecisionButtonClick = (e: SyntheticEvent<HTMLButtonElement>) => {
