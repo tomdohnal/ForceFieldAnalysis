@@ -11,10 +11,13 @@ import { Text, Box } from '../components/common/index';
 import { Rectangle, Triangle } from '../components/svg/index';
 import TextBubble from '../components/TextBubble';
 import { moveCaretAtTheEnd } from '../helpers';
+import type { ReduxState } from '../redux';
+import { EDIT_MODE, type Mode } from '../ducks/mode';
 
 type Props = {
   color: string,
   force: Force,
+  appMode: Mode,
   deleteForce: (id: string) => void,
   setForceName: (id: string, name: string) => void,
   increaseForce: (id: string) => void,
@@ -59,7 +62,8 @@ export class Arrow extends Component<Props, State> {
   };
 
   render() {
-    const { force: { driving, strength, name }, color } = this.props;
+    const { force: { driving, strength, name }, color, appMode } = this.props;
+    const { editArrow } = this.state;
 
     const arrowUnitWidth = 50;
     const arrowWidth = strength * arrowUnitWidth;
@@ -69,8 +73,8 @@ export class Arrow extends Component<Props, State> {
 
     return (
       <Box>
-        <TextBubble color={color} left={!driving}>
-          {this.state.editArrow ?
+        <TextBubble color={color} left={!driving} appMode={appMode} >
+          {editArrow ?
             <Form onSubmit={this.onEditArrowNameFormSubmit}>
               <Input autoFocus size="small" value={name} onChange={this.onEditArrowInputChange} onFocus={moveCaretAtTheEnd} action>
                 <input style={{ width: 'inherit' }} />
@@ -80,27 +84,31 @@ export class Arrow extends Component<Props, State> {
             :
             <Box>
               <Text fontSize="15px">{name}</Text>
-              <EditIcon
-                size="18"
-                style={{ verticalAlign: 'top', marginLeft: '4px', cursor: 'pointer' }}
-                onClick={this.onEditArrowNameClick}
-              />
+              {appMode === EDIT_MODE &&
+                <EditIcon
+                  size="18"
+                  style={{ verticalAlign: 'top', marginLeft: '4px', cursor: 'pointer' }}
+                  onClick={this.onEditArrowNameClick}
+                />
+              }
             </Box>
           }
         </TextBubble>
         <Box position="relative">
-          <Icon
-            name="delete"
-            size="big"
-            style={{
-              position: 'absolute',
-              top: 'calc(50% - 14px)',
-              color: COLORS.RED,
-              cursor: 'pointer',
-              [driving ? 'right' : 'left']: `${arrowWidth}px`,
-            }}
-            onClick={this.onDeleteArrowIconClick}
-          />
+          {appMode === EDIT_MODE &&
+            <Icon
+              name="delete"
+              size="big"
+              style={{
+                position: 'absolute',
+                top: 'calc(50% - 14px)',
+                color: COLORS.RED,
+                cursor: 'pointer',
+                [driving ? 'right' : 'left']: `${arrowWidth}px`,
+              }}
+              onClick={this.onDeleteArrowIconClick}
+            />
+          }
           <svg height={arrowHeight} width={arrowWidth} viewBox={`0 0 ${arrowWidth} ${arrowHeight}`}>
             <Rectangle
               width={arrowWidth - triangleWidth}
@@ -118,28 +126,30 @@ export class Arrow extends Component<Props, State> {
               color={color}
             />
           </svg>
-          <Box
-            position="absolute"
-            top={`${arrowHeight - ((arrowHeight - rectangleHeight) / 2)}px`}
-            right={driving && `${triangleWidth}px`}
-            left={!driving && `${triangleWidth}px`}
-          >
-            <Icon
-              name="plus"
-              size="large"
-              disabled={strength === MAX_STRENGTH}
-              style={{ cursor: `${strength < MAX_STRENGTH ? 'pointer' : 'initial'}` }}
-              onClick={this.onIncreaseArrowIconClick}
-            />
-            <Text fontSize="18px">{strength}</Text>
-            <Icon
-              name="minus"
-              size="large"
-              disabled={strength === MIN_STRENGTH}
-              style={{ cursor: `${strength > MIN_STRENGTH ? 'pointer' : 'initial'}` }}
-              onClick={this.onDecreaseArrowIconClick}
-            />
-          </Box>
+          {appMode === EDIT_MODE &&
+            <Box
+              position="absolute"
+              top={`${arrowHeight - ((arrowHeight - rectangleHeight) / 2)}px`}
+              right={driving && `${triangleWidth}px`}
+              left={!driving && `${triangleWidth}px`}
+            >
+              <Icon
+                name="plus"
+                size="large"
+                disabled={strength === MAX_STRENGTH}
+                style={{ cursor: `${strength < MAX_STRENGTH ? 'pointer' : 'initial'}` }}
+                onClick={this.onIncreaseArrowIconClick}
+              />
+              <Text fontSize="18px">{strength}</Text>
+              <Icon
+                name="minus"
+                size="large"
+                disabled={strength === MIN_STRENGTH}
+                style={{ cursor: `${strength > MIN_STRENGTH ? 'pointer' : 'initial'}` }}
+                onClick={this.onDecreaseArrowIconClick}
+              />
+            </Box>
+          }
         </Box>
         <Divider hidden />
       </Box>
@@ -147,6 +157,8 @@ export class Arrow extends Component<Props, State> {
   }
 }
 
+export const mapStateToProps = (state: ReduxState) => ({ appMode: state.mode });
+
 const actionCreators = { deleteForce, setForceName, increaseForce, decreaseForce };
 
-export default connect(undefined, actionCreators)(Arrow);
+export default connect(mapStateToProps, actionCreators)(Arrow);

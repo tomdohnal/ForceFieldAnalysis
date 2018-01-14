@@ -6,7 +6,7 @@ import { Button, Grid } from 'semantic-ui-react';
 import { Box, Text } from '../components/common/index';
 import { COLORS, HEADER_HEIGHT } from '../constants/styles';
 import AboutBox from '../components/AboutBox';
-import { resetState, type ResetStateAction } from '../redux';
+import { resetState, type ResetStateAction, type ReduxState } from '../redux';
 import { switchToCompleteMode, switchToEditMode, type SwitchToCompleteModeAction, type SwitchToEditModeAction, type Mode, EDIT_MODE } from '../ducks/mode';
 
 type Props = {
@@ -102,7 +102,7 @@ export class Header extends Component<Props, State> {
   }
 }
 
-export const mapStateToProps = state => ({ appMode: state.mode });
+export const mapStateToProps = (state: ReduxState) => ({ appMode: state.mode });
 
 export default connect(
   mapStateToProps, { resetState, switchToCompleteMode, switchToEditMode },

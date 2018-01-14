@@ -1,8 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Arrow rendering renders correctly arrow in complete mode 1`] = `
+<boxStyles>
+  <textBubbleStyles
+    appMode="COMPLETE_MODE"
+    color="#FFF"
+    left={false}
+  >
+    <boxStyles>
+      <text
+        fontSize="15px"
+      >
+        the name of the force
+      </text>
+    </boxStyles>
+  </textBubbleStyles>
+  <boxStyles
+    position="relative"
+  >
+    <svg
+      height={80}
+      viewBox="0 0 250 80"
+      width={250}
+    >
+      <Rectangle
+        color="#FFF"
+        height={40}
+        width={214}
+        x={0}
+        y={20}
+      />
+      <Triangle
+        color="#FFF"
+        height={80}
+        width={36}
+        x="214,0"
+        y="214,80"
+        z="250,40"
+      />
+    </svg>
+  </boxStyles>
+  <Divider
+    hidden={true}
+  />
+</boxStyles>
+`;
+
 exports[`Arrow rendering renders driving arrow correctly 1`] = `
 <boxStyles>
   <textBubbleStyles
+    appMode="EDIT_MODE"
     color="#FFF"
     left={false}
   >
@@ -110,6 +157,7 @@ exports[`Arrow rendering renders driving arrow correctly 1`] = `
 exports[`Arrow rendering renders hindering arrow correctly 1`] = `
 <boxStyles>
   <textBubbleStyles
+    appMode="EDIT_MODE"
     color="#FFF"
     left={false}
   >

@@ -1,9 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { Arrow } from '../../containers/Arrow';
+import { Arrow, mapStateToProps } from '../../containers/Arrow';
 import { mockShallowComponentMethod } from '../helpers';
 import { MAX_STRENGTH, MIN_STRENGTH } from '../../constants';
+import { COMPLETE_MODE, EDIT_MODE, switchToEditMode } from '../../ducks/mode';
+import { store } from '../../redux';
 
 describe('Arrow', () => {
   const deleteForce = jest.fn();
@@ -24,6 +26,7 @@ describe('Arrow', () => {
       setForceName={setForceName}
       increaseForce={increaseForce}
       decreaseForce={decreaseForce}
+      appMode={EDIT_MODE}
     />,
   );
 
@@ -46,6 +49,28 @@ describe('Arrow', () => {
           setForceName={setForceName}
           increaseForce={increaseForce}
           decreaseForce={decreaseForce}
+          appMode={EDIT_MODE}
+        />,
+      );
+
+      expect(ShallowArrow).toMatchSnapshot();
+    });
+
+    it('renders correctly arrow in complete mode', () => {
+      const ShallowArrow = shallow(
+        <Arrow
+          color="#FFF"
+          force={{
+            id: '123',
+            driving: true,
+            strength: 5,
+            name: 'the name of the force',
+          }}
+          deleteForce={deleteForce}
+          setForceName={setForceName}
+          increaseForce={increaseForce}
+          decreaseForce={decreaseForce}
+          appMode={COMPLETE_MODE}
         />,
       );
 
@@ -173,6 +198,16 @@ describe('Arrow', () => {
       ShallowArrow.find('Icon[name="minus"]').dive().find('i').simulate('click');
 
       expect(ShallowArrow.instance().onDecreaseArrowIconClick).toBeCalled();
+    });
+  });
+
+  describe('mapStateToProps', () => {
+    it('maps mode to appMode prop', () => {
+      store.dispatch(switchToEditMode());
+
+      const props = mapStateToProps(store.getState());
+
+      expect(props).toEqual({ appMode: EDIT_MODE });
     });
   });
 });

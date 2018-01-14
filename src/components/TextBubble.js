@@ -1,11 +1,12 @@
 import { createComponent } from 'react-fela';
+import { EDIT_MODE } from '../ducks/mode';
 
 const arrowMargin = 20;
 const arrowHeight = 12;
 
-const textBubbleStyles = ({ color, left }) => ({
+const textBubbleStyles = ({ color, left, appMode }) => ({
   position: 'relative',
-  textAlign: 'right',
+  textAlign: appMode === EDIT_MODE ? 'right' : 'center',
   display: 'inline-block',
   padding: '2px',
   marginBottom: '4px',
