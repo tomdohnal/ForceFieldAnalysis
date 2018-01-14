@@ -10,11 +10,13 @@ import { Box } from '../components/common';
 import { addDrivingForce, addHinderingForce, type Forces } from '../ducks/forces';
 import { type ReduxState } from '../redux';
 import NewForceForm from '../components/NewForceForm';
+import { EDIT_MODE, type Mode } from '../ducks/mode';
 
 type Props = {
   driving: boolean,
   submitButtonText: string,
   forces: Forces,
+  appMode: Mode,
   addForce: (name: string, strength: number) => void,
 };
 
@@ -30,17 +32,19 @@ export class ForcesContainer extends Component<Props> {
   }
 
   render() {
-    const { driving, submitButtonText, addForce } = this.props;
+    const { driving, submitButtonText, addForce, appMode } = this.props;
 
     return (
       <Box>
         <Box textAlign={driving ? 'right' : 'left'}>{this.renderForces()}</Box>
 
-        <NewForceForm
-          submitButtonText={submitButtonText}
-          submitButtonColor={driving ? COLORS.GREEN : COLORS.RED}
-          onFormSubmit={addForce}
-        />
+        {appMode === EDIT_MODE &&
+          <NewForceForm
+            submitButtonText={submitButtonText}
+            submitButtonColor={driving ? COLORS.GREEN : COLORS.RED}
+            onFormSubmit={addForce}
+          />
+        }
       </Box>
     );
   }
@@ -48,6 +52,7 @@ export class ForcesContainer extends Component<Props> {
 
 export const mapStateToProps = (state: ReduxState, ownProps: Props) => ({
   forces: _.filter(state.forces, force => force.driving === ownProps.driving),
+  appMode: state.mode,
 });
 
 export const mapDispatchToProps = (dispatch: Function, ownProps: Props) => ({

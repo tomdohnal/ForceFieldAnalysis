@@ -1,5 +1,154 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ForcesContainer rendering renders correctly in complete mode 1`] = `
+<boxStyles>
+  <boxStyles
+    textAlign="left"
+  >
+    <boxStyles
+      key="0"
+    >
+      <HinderingForceArrow
+        force={
+          Object {
+            "driving": false,
+            "id": 0,
+            "name": "the name of the force",
+            "strength": 0,
+          }
+        }
+      />
+    </boxStyles>
+    <boxStyles
+      key="1"
+    >
+      <HinderingForceArrow
+        force={
+          Object {
+            "driving": false,
+            "id": 1,
+            "name": "the name of the force",
+            "strength": 1,
+          }
+        }
+      />
+    </boxStyles>
+    <boxStyles
+      key="2"
+    >
+      <HinderingForceArrow
+        force={
+          Object {
+            "driving": false,
+            "id": 2,
+            "name": "the name of the force",
+            "strength": 2,
+          }
+        }
+      />
+    </boxStyles>
+    <boxStyles
+      key="3"
+    >
+      <HinderingForceArrow
+        force={
+          Object {
+            "driving": false,
+            "id": 3,
+            "name": "the name of the force",
+            "strength": 3,
+          }
+        }
+      />
+    </boxStyles>
+    <boxStyles
+      key="4"
+    >
+      <HinderingForceArrow
+        force={
+          Object {
+            "driving": false,
+            "id": 4,
+            "name": "the name of the force",
+            "strength": 4,
+          }
+        }
+      />
+    </boxStyles>
+    <boxStyles
+      key="5"
+    >
+      <HinderingForceArrow
+        force={
+          Object {
+            "driving": false,
+            "id": 5,
+            "name": "the name of the force",
+            "strength": 5,
+          }
+        }
+      />
+    </boxStyles>
+    <boxStyles
+      key="6"
+    >
+      <HinderingForceArrow
+        force={
+          Object {
+            "driving": false,
+            "id": 6,
+            "name": "the name of the force",
+            "strength": 6,
+          }
+        }
+      />
+    </boxStyles>
+    <boxStyles
+      key="7"
+    >
+      <HinderingForceArrow
+        force={
+          Object {
+            "driving": false,
+            "id": 7,
+            "name": "the name of the force",
+            "strength": 7,
+          }
+        }
+      />
+    </boxStyles>
+    <boxStyles
+      key="8"
+    >
+      <HinderingForceArrow
+        force={
+          Object {
+            "driving": false,
+            "id": 8,
+            "name": "the name of the force",
+            "strength": 8,
+          }
+        }
+      />
+    </boxStyles>
+    <boxStyles
+      key="9"
+    >
+      <HinderingForceArrow
+        force={
+          Object {
+            "driving": false,
+            "id": 9,
+            "name": "the name of the force",
+            "strength": 9,
+          }
+        }
+      />
+    </boxStyles>
+  </boxStyles>
+</boxStyles>
+`;
+
 exports[`ForcesContainer rendering renders driving forces correctly 1`] = `
 <boxStyles>
   <boxStyles

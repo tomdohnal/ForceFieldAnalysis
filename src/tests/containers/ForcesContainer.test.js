@@ -4,6 +4,7 @@ import { shallow } from 'enzyme';
 import { ForcesContainer, mapStateToProps, mapDispatchToProps } from '../../containers/ForcesContainer';
 import { addDrivingForce, addHinderingForce } from '../../ducks/forces';
 import { store, RESET_STATE } from '../../redux';
+import { COMPLETE_MODE, EDIT_MODE, switchToEditMode } from '../../ducks/mode';
 
 describe('ForcesContainer', () => {
   const getSomeRandomForces = (driving) => {
@@ -34,6 +35,7 @@ describe('ForcesContainer', () => {
           driving
           submitButtonText="submit driving force"
           forces={getSomeRandomDrivingForces()}
+          appMode={EDIT_MODE}
         />,
       );
 
@@ -46,6 +48,20 @@ describe('ForcesContainer', () => {
           driving={false}
           submitButtonText="submit driving force"
           forces={getSomeRandomHinderingForces()}
+          appMode={EDIT_MODE}
+        />,
+      );
+
+      expect(ShallowForcesContainer).toMatchSnapshot();
+    });
+
+    it('renders correctly in complete mode', () => {
+      const ShallowForcesContainer = shallow(
+        <ForcesContainer
+          driving={false}
+          submitButtonText="submit driving force"
+          forces={getSomeRandomHinderingForces()}
+          appMode={COMPLETE_MODE}
         />,
       );
 
@@ -80,6 +96,17 @@ describe('ForcesContainer', () => {
       const props = mapStateToProps(store.getState(), { driving: false });
 
       expect(props.forces).toHaveLength(2);
+    });
+
+    it('maps global mode to appMode prop', () => {
+      store.dispatch(switchToEditMode());
+
+      const props = mapStateToProps(store.getState(), { driving: false });
+
+      expect(props).toEqual({
+        forces: [],
+        appMode: EDIT_MODE,
+      });
     });
   });
 
