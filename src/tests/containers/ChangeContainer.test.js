@@ -4,6 +4,7 @@ import { shallow } from 'enzyme';
 import { store } from '../../redux/index';
 import { setChangeName, setChangeDescription } from '../../ducks/change';
 import { ChangeContainer, mapStateToProps } from '../../containers/ChangeContainer';
+import { COMPLETE_MODE, EDIT_MODE, switchToEditMode } from '../../ducks/mode';
 
 describe('ChangeContainer', () => {
   describe('rendering', () => {
@@ -27,6 +28,35 @@ describe('ChangeContainer', () => {
           }}
         />,
       );
+
+      expect(tree).toMatchSnapshot();
+    });
+
+    it('renders correctly in edit mode', () => {
+      const tree = shallow(
+        <ChangeContainer
+          change={{
+            name: 'change name',
+            description: 'change description',
+          }}
+          appMode={EDIT_MODE}
+        />,
+      );
+
+      expect(tree).toMatchSnapshot();
+    });
+
+    it('renders correctly in complete mode', () => {
+      const tree = shallow(
+        <ChangeContainer
+          change={{
+            name: 'change name',
+            description: 'change description',
+          }}
+          appMode={COMPLETE_MODE}
+        />,
+      );
+
       expect(tree).toMatchSnapshot();
     });
   });
@@ -105,13 +135,18 @@ describe('ChangeContainer', () => {
   });
 
   describe('mapStateToProps', () => {
-    it('returns the change', () => {
+    it('returns the change and mode', () => {
       store.dispatch(setChangeName('change name'));
       store.dispatch(setChangeDescription('change description'));
 
+      store.dispatch(switchToEditMode());
+
       const change = mapStateToProps(store.getState());
 
-      expect(change).toEqual({ change: { name: 'change name', description: 'change description' } });
+      expect(change).toEqual({
+        change: { name: 'change name', description: 'change description' },
+        appMode: EDIT_MODE,
+      });
     });
   });
 });

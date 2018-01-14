@@ -17,13 +17,13 @@ export const FooterContainer = ({
 }: Props) => {
   let centerText: string = '';
   if (drivingForcesCount === 0 && hinderingForcesCount === 0) {
-    centerText = 'Create some forces and start the analysis!';
+    centerText = 'Create forces to start the analysis!';
   } else if (drivingForcesCount === hinderingForcesCount) {
     centerText = 'It\'s a tie!';
   } else if (drivingForcesCount > hinderingForcesCount) {
     centerText = 'Let\'s make the change happen!';
   } else {
-    centerText = 'No way! Keep status quo...';
+    centerText = 'No way for the change!';
   }
 
   return (

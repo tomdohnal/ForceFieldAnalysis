@@ -1,6 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ChangeContainer rendering renders correctly with change name and description 1`] = `
+exports[`ChangeContainer rendering renders correctly in complete mode 1`] = `
+<boxStyles
+  backgroundColor="#268bd2"
+  height="100%"
+  padding="20px 16px"
+>
+  <boxStyles
+    marginTop="16px"
+    textAlign="center"
+  >
+    <text
+      color="#fff"
+      fontSize="48px"
+    >
+      change name
+    </text>
+  </boxStyles>
+  <boxStyles
+    marginTop="16px"
+  >
+    <text
+      color="#fff"
+      fontSize="18px"
+    >
+      change description
+    </text>
+  </boxStyles>
+</boxStyles>
+`;
+
+exports[`ChangeContainer rendering renders correctly in edit mode 1`] = `
 <boxStyles
   backgroundColor="#268bd2"
   height="100%"
@@ -62,27 +92,57 @@ exports[`ChangeContainer rendering renders correctly with change name and descri
 </boxStyles>
 `;
 
+exports[`ChangeContainer rendering renders correctly with change name and description 1`] = `
+<boxStyles
+  backgroundColor="#268bd2"
+  height="100%"
+  padding="20px 16px"
+>
+  <boxStyles
+    marginTop="16px"
+    textAlign="center"
+  >
+    <text
+      color="#fff"
+      fontSize="48px"
+    >
+      change name
+    </text>
+  </boxStyles>
+  <boxStyles
+    marginTop="16px"
+  >
+    <text
+      color="#fff"
+      fontSize="18px"
+    >
+      change description
+    </text>
+  </boxStyles>
+</boxStyles>
+`;
+
 exports[`ChangeContainer rendering renders correctly with no change name and description 1`] = `
 <boxStyles
   backgroundColor="#268bd2"
   height="100%"
   padding="20px 16px"
 >
-  <ChangeNameForm
-    inputValue=""
-    newlyDisplayed={false}
-    onInputChange={[Function]}
-    onSubmit={[Function]}
-  />
+  <boxStyles
+    marginTop="16px"
+    textAlign="center"
+  >
+    <text
+      color="#fff"
+      fontSize="48px"
+    />
+  </boxStyles>
   <boxStyles
     marginTop="16px"
   >
-    <ChangeDescriptionForm
-      inputValue=""
-      newlyDisplayed={false}
-      onInputChange={[Function]}
-      onNoDescriptionButtonClick={[Function]}
-      onSubmit={[Function]}
+    <text
+      color="#fff"
+      fontSize="18px"
     />
   </boxStyles>
 </boxStyles>

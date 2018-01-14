@@ -29,14 +29,14 @@ const Footer = ({
   drivingForcesCount, hinderingForcesCount, centerText,
 }: Props) => (
   <StyledFooter>
-    <Grid>
-      <Grid.Column width={6}>
+    <Grid columns={3}>
+      <Grid.Column>
         <Text fontSize="54px" color="#FFF">Driving forces: {drivingForcesCount}</Text>
       </Grid.Column>
-      <Grid.Column width={4} textAlign="center">
+      <Grid.Column textAlign="center">
         <Text fontSize="24px" color="#FFF">{centerText}</Text>
       </Grid.Column>
-      <Grid.Column width={6} textAlign="right">
+      <Grid.Column textAlign="right">
         <Text fontSize="54px" color="#FFF">Hindering forces: {hinderingForcesCount}</Text>
       </Grid.Column>
     </Grid>

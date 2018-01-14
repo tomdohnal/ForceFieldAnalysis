@@ -6,12 +6,15 @@ import EditIcon from 'react-icons/lib/ti/edit';
 import { COLORS } from '../constants/styles';
 import type { ReduxState } from '../redux/index';
 import { setChangeName, setChangeDescription, type Change } from '../ducks/change';
+import type { Mode } from '../ducks/mode';
 import { Box, Text } from '../components/common/index';
 import ChangeNameForm from '../components/ChangeNameForm';
 import ChangeDescriptionForm from '../components/ChangeDescriptionForm';
+import { EDIT_MODE } from '../ducks/mode';
 
 type Props = {
   change: Change,
+  appMode: Mode,
   setChangeName: (name: string) => void,
   setChangeDescription: (description: string) => void,
 };
@@ -65,51 +68,59 @@ export class ChangeContainer extends Component<Props, State> {
     };
 
   render() {
-    const { change: { name, description } } = this.props;
+    const { change: { name, description }, appMode } = this.props;
+    const {
+      editChangeName, editChangeDescription,
+      isEditChangeNameNewlyDisplayed, isEditChangeDescriptionNewlyDisplayed,
+    } = this.state;
 
     return (
       <Box padding="20px 16px" backgroundColor={COLORS.BLUE} height="100%">
-        {this.state.editChangeName ?
+        {editChangeName && appMode === EDIT_MODE ?
           <ChangeNameForm
             onSubmit={this.onNameFormSubmit}
             onInputChange={this.onNameChange}
             inputValue={name || ''}
-            newlyDisplayed={this.state.isEditChangeNameNewlyDisplayed}
+            newlyDisplayed={isEditChangeNameNewlyDisplayed}
           />
           :
           <Box marginTop="16px" textAlign="center">
             <Text color={COLORS.WHITE} fontSize="48px">{name}</Text>
-            <Box display="inline" >
-              <EditIcon
-                color={COLORS.WHITE}
-                size="28"
-                style={{ verticalAlign: 'top', marginLeft: '8px', cursor: 'pointer' }}
-                onClick={this.onEditNameClick}
-              />
-            </Box>
+            {appMode === EDIT_MODE &&
+              <Box display="inline" >
+                <EditIcon
+                  color={COLORS.WHITE}
+                  size="28"
+                  style={{ verticalAlign: 'top', marginLeft: '8px', cursor: 'pointer' }}
+                  onClick={this.onEditNameClick}
+                />
+              </Box>
+            }
           </Box>
         }
-        {this.state.editChangeDescription ?
+        {editChangeDescription && appMode === EDIT_MODE ?
           <Box marginTop="16px">
             <ChangeDescriptionForm
               onSubmit={this.onDescriptionFormSubmit}
               onNoDescriptionButtonClick={this.onNoDescriptionButtonClick}
               onInputChange={this.onDescriptionChange}
               inputValue={description || ''}
-              newlyDisplayed={this.state.isEditChangeDescriptionNewlyDisplayed}
+              newlyDisplayed={isEditChangeDescriptionNewlyDisplayed}
             />
           </Box>
           :
           <Box marginTop="16px">
             <Text color={COLORS.WHITE} fontSize="18px">{description}</Text>
-            <Box display="inline" >
-              <EditIcon
-                color={COLORS.WHITE}
-                size="18"
-                style={{ verticalAlign: 'top', marginLeft: '4px', cursor: 'pointer' }}
-                onClick={this.onEditDescriptionClick}
-              />
-            </Box>
+            {appMode === EDIT_MODE &&
+              <Box display="inline">
+                <EditIcon
+                  color={COLORS.WHITE}
+                  size="18"
+                  style={{ verticalAlign: 'top', marginLeft: '4px', cursor: 'pointer' }}
+                  onClick={this.onEditDescriptionClick}
+                />
+              </Box>
+            }
           </Box>
         }
       </Box>
@@ -119,6 +130,7 @@ export class ChangeContainer extends Component<Props, State> {
 
 export const mapStateToProps = (state: ReduxState) => ({
   change: state.change,
+  appMode: state.mode,
 });
 
 export default connect(mapStateToProps, { setChangeName, setChangeDescription })(ChangeContainer);
