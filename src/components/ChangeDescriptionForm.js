@@ -19,7 +19,7 @@ const ChangeDescriptionForm = ({
       <TextArea
         autoHeight
         onChange={onInputChange}
-        placeholder="Enter the description of your change (optional)"
+        placeholder="Description of your change (optional)"
         value={inputValue}
         onFocus={moveCaretAtTheEnd}
         autoFocus={newlyDisplayed}

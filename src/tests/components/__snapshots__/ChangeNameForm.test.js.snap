@@ -9,7 +9,7 @@ exports[`ChangeNameForm rendering renders correctly 1`] = `
     <Input
       onChange={[Function]}
       onFocus={[Function]}
-      placeholder="Enter the name of your change"
+      placeholder="Name of your change"
       size="massive"
       style={
         Object {

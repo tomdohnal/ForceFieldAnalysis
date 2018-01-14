@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header rendering renders correctly in complete mode 1`] = `
+<boxStyles
+  height="60px"
+  paddingTop="16px"
+>
+  <Grid
+    columns={3}
+  >
+    <GridRow>
+      <GridColumn>
+        <boxStyles
+          paddingLeft="16px"
+        >
+          <Button
+            as="button"
+            onClick={[Function]}
+            style={
+              Object {
+                "background": "#dc2f2f",
+                "color": "#fff",
+              }
+            }
+          >
+            Reset analysis
+          </Button>
+          <Button
+            as="button"
+            onClick={[Function]}
+          >
+            Edit forces
+          </Button>
+        </boxStyles>
+      </GridColumn>
+      <GridColumn>
+        <boxStyles
+          textAlign="center"
+        >
+          <text
+            fontSize="24px"
+          >
+            Force Field Analysis Tool
+          </text>
+        </boxStyles>
+      </GridColumn>
+      <GridColumn
+        floated="right"
+      >
+        <text
+          clickable={true}
+          onClick={[Function]}
+          position="absolute"
+          right="30px"
+        >
+          About
+        </text>
+      </GridColumn>
+    </GridRow>
+  </Grid>
+</boxStyles>
+`;
+
+exports[`Header rendering renders correctly in edit mode 1`] = `
+<boxStyles
+  height="60px"
+  paddingTop="16px"
+>
+  <Grid
+    columns={3}
+  >
+    <GridRow>
+      <GridColumn>
+        <boxStyles
+          paddingLeft="16px"
+        >
+          <Button
+            as="button"
+            onClick={[Function]}
+            style={
+              Object {
+                "background": "#dc2f2f",
+                "color": "#fff",
+              }
+            }
+          >
+            Reset analysis
+          </Button>
+          <Button
+            as="button"
+            onClick={[Function]}
+          >
+            Make decision
+          </Button>
+        </boxStyles>
+      </GridColumn>
+      <GridColumn>
+        <boxStyles
+          textAlign="center"
+        >
+          <text
+            fontSize="24px"
+          >
+            Force Field Analysis Tool
+          </text>
+        </boxStyles>
+      </GridColumn>
+      <GridColumn
+        floated="right"
+      >
+        <text
+          clickable={true}
+          onClick={[Function]}
+          position="absolute"
+          right="30px"
+        >
+          About
+        </text>
+      </GridColumn>
+    </GridRow>
+  </Grid>
+</boxStyles>
+`;

@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AboutBox renders correctly 1`] = `
+<boxStyles
+  backgroundColor="#fff"
+  border="2px #268bd2 solid"
+  padding="16px"
+  position="absolute"
+  right="30px"
+  textAlign="initial"
+  width="500px"
+  zIndex="999"
+>
+  <text
+    clickable={true}
+    onClick={[Function]}
+    position="absolute"
+    right="16px"
+    top="8px"
+  >
+    Close
+  </text>
+  <text
+    fontSize="32px"
+    marginTop="16px"
+  >
+    What is Force Field Analysis?
+  </text>
+  <Divider
+    hidden={true}
+  />
+  <text
+    fontSize="18px"
+  >
+    Force Field Analysis is a decision-making tool. Originally created in 1940s by psychologist Kurt Lewin, it is widely used in business for making decisions. The idea is to create driving (also called helping) forces that are driving change and hindering (also called resisting) forces that are hindering change. You can attribute different strengths to each force. Once you've done with that, you can compare the sum of your driving forces and your hindering forces and decide if you should go or not go for change!
+  </text>
+</boxStyles>
+`;

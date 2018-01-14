@@ -17,8 +17,10 @@ export const createReducer =
         handlers[action.type](state, action) : state
     );
 
-export const moveCaretAtTheEnd = (e: Event<HTMLInputElement>) => {
-  const { value } = e.target;
-  e.target.value = '';
-  e.target.value = value;
+export const moveCaretAtTheEnd = (e: SyntheticEvent<HTMLInputElement>) => {
+  if (e.target instanceof HTMLInputElement) {
+    const { value } = e.target;
+    e.target.value = '';
+    e.target.value = value;
+  }
 };
