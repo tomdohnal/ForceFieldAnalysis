@@ -8,7 +8,7 @@ import { HEADER_HEIGHT } from '../constants/styles';
 
 const MainContainer = () => (
   <Grid style={{ minHeight: `calc(100% - ${HEADER_HEIGHT}`, margin: 0 }}>
-    <Grid.Row style={{ padding: '8px'}}>
+    <Grid.Row style={{ padding: '8px 0px' }}>
       <Grid.Column width={6}>
         <DrivingForcesContainer />
       </Grid.Column>

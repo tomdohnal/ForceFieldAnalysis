@@ -5,6 +5,7 @@ import { Arrow, mapStateToProps } from '../../containers/Arrow';
 import { mockShallowComponentMethod } from '../helpers';
 import { MAX_STRENGTH, MIN_STRENGTH } from '../../constants';
 import { COMPLETE_MODE, EDIT_MODE, switchToEditMode } from '../../ducks/mode';
+import { changeScale } from '../../ducks/scale';
 import { store } from '../../redux';
 
 describe('Arrow', () => {
@@ -27,6 +28,7 @@ describe('Arrow', () => {
       increaseForce={increaseForce}
       decreaseForce={decreaseForce}
       appMode={EDIT_MODE}
+      windowScale={{ height: 1, width: 1 }}
     />,
   );
 
@@ -50,6 +52,7 @@ describe('Arrow', () => {
           increaseForce={increaseForce}
           decreaseForce={decreaseForce}
           appMode={EDIT_MODE}
+          windowScale={{ height: 1, width: 1 }}
         />,
       );
 
@@ -71,6 +74,7 @@ describe('Arrow', () => {
           increaseForce={increaseForce}
           decreaseForce={decreaseForce}
           appMode={COMPLETE_MODE}
+          windowScale={{ height: 1, width: 1 }}
         />,
       );
 
@@ -205,9 +209,11 @@ describe('Arrow', () => {
     it('maps mode to appMode prop', () => {
       store.dispatch(switchToEditMode());
 
+      store.dispatch(changeScale({ innerHeight: 1080, innerWidth: 1920 }));
+
       const props = mapStateToProps(store.getState());
 
-      expect(props).toEqual({ appMode: EDIT_MODE });
+      expect(props).toEqual({ appMode: EDIT_MODE, windowScale: { height: 1, width: 1 } });
     });
   });
 });

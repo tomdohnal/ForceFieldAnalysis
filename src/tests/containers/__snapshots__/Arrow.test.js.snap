@@ -6,6 +6,12 @@ exports[`Arrow rendering renders correctly arrow in complete mode 1`] = `
     appMode="COMPLETE_MODE"
     color="#FFF"
     left={false}
+    windowScale={
+      Object {
+        "height": 1,
+        "width": 1,
+      }
+    }
   >
     <boxStyles>
       <text
@@ -19,24 +25,24 @@ exports[`Arrow rendering renders correctly arrow in complete mode 1`] = `
     position="relative"
   >
     <svg
-      height={80}
-      viewBox="0 0 250 80"
-      width={250}
+      height={94}
+      viewBox="0 0 400 94"
+      width={400}
     >
       <Rectangle
         color="#FFF"
-        height={40}
-        width={214}
+        height={47}
+        width={348}
         x={0}
-        y={20}
+        y={23.5}
       />
       <Triangle
         color="#FFF"
-        height={80}
-        width={36}
-        x="214,0"
-        y="214,80"
-        z="250,40"
+        height={94}
+        width={52}
+        x="348,0"
+        y="348,94"
+        z="400,47"
       />
     </svg>
   </boxStyles>
@@ -52,6 +58,12 @@ exports[`Arrow rendering renders driving arrow correctly 1`] = `
     appMode="EDIT_MODE"
     color="#FFF"
     left={false}
+    windowScale={
+      Object {
+        "height": 1,
+        "width": 1,
+      }
+    }
   >
     <boxStyles>
       <text
@@ -85,37 +97,37 @@ exports[`Arrow rendering renders driving arrow correctly 1`] = `
           "color": "#dc2f2f",
           "cursor": "pointer",
           "position": "absolute",
-          "right": "250px",
+          "right": "400px",
           "top": "calc(50% - 14px)",
         }
       }
     />
     <svg
-      height={80}
-      viewBox="0 0 250 80"
-      width={250}
+      height={94}
+      viewBox="0 0 400 94"
+      width={400}
     >
       <Rectangle
         color="#FFF"
-        height={40}
-        width={214}
+        height={47}
+        width={348}
         x={0}
-        y={20}
+        y={23.5}
       />
       <Triangle
         color="#FFF"
-        height={80}
-        width={36}
-        x="214,0"
-        y="214,80"
-        z="250,40"
+        height={94}
+        width={52}
+        x="348,0"
+        y="348,94"
+        z="400,47"
       />
     </svg>
     <boxStyles
       left={false}
       position="absolute"
-      right="36px"
-      top="60px"
+      right="52px"
+      top="70.5px"
     >
       <Icon
         as="i"
@@ -160,6 +172,12 @@ exports[`Arrow rendering renders hindering arrow correctly 1`] = `
     appMode="EDIT_MODE"
     color="#FFF"
     left={false}
+    windowScale={
+      Object {
+        "height": 1,
+        "width": 1,
+      }
+    }
   >
     <boxStyles>
       <text
@@ -193,37 +211,37 @@ exports[`Arrow rendering renders hindering arrow correctly 1`] = `
           "color": "#dc2f2f",
           "cursor": "pointer",
           "position": "absolute",
-          "right": "250px",
+          "right": "400px",
           "top": "calc(50% - 14px)",
         }
       }
     />
     <svg
-      height={80}
-      viewBox="0 0 250 80"
-      width={250}
+      height={94}
+      viewBox="0 0 400 94"
+      width={400}
     >
       <Rectangle
         color="#FFF"
-        height={40}
-        width={214}
+        height={47}
+        width={348}
         x={0}
-        y={20}
+        y={23.5}
       />
       <Triangle
         color="#FFF"
-        height={80}
-        width={36}
-        x="214,0"
-        y="214,80"
-        z="250,40"
+        height={94}
+        width={52}
+        x="348,0"
+        y="348,94"
+        z="400,47"
       />
     </svg>
     <boxStyles
       left={false}
       position="absolute"
-      right="36px"
-      top="60px"
+      right="52px"
+      top="70.5px"
     >
       <Icon
         as="i"

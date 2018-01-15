@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ForcesContainer rendering renders correctly in complete mode 1`] = `
-<boxStyles>
+<boxStyles
+  paddingBottom="8px"
+>
   <boxStyles
     textAlign="left"
   >
@@ -150,7 +152,9 @@ exports[`ForcesContainer rendering renders correctly in complete mode 1`] = `
 `;
 
 exports[`ForcesContainer rendering renders driving forces correctly 1`] = `
-<boxStyles>
+<boxStyles
+  paddingBottom="8px"
+>
   <boxStyles
     textAlign="right"
   >
@@ -303,7 +307,9 @@ exports[`ForcesContainer rendering renders driving forces correctly 1`] = `
 `;
 
 exports[`ForcesContainer rendering renders hindering forces correctly 1`] = `
-<boxStyles>
+<boxStyles
+  paddingBottom="8px"
+>
   <boxStyles
     textAlign="left"
   >

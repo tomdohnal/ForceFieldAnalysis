@@ -12,7 +12,7 @@ exports[`MainContainer renders correctly 1`] = `
   <GridRow
     style={
       Object {
-        "padding": "8px",
+        "padding": "8px 0px",
       }
     }
   >

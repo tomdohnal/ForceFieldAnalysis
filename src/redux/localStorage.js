@@ -1,5 +1,5 @@
 // @flow
-import { type ReduxState } from './index';
+import { type PersistedState } from './index';
 
 const REDUX_STATE = 'REDUX_STATE';
 
@@ -17,7 +17,7 @@ export const loadState = () => {
   }
 };
 
-export const saveState = (reduxState: ReduxState) => {
+export const saveState = (reduxState: PersistedState) => {
   try {
     const serializedState = JSON.stringify(reduxState);
 

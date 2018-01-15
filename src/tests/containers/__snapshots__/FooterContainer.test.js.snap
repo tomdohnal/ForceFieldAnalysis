@@ -2,10 +2,10 @@
 
 exports[`FooterContainer renders correctly 1`] = `
 <footerStyles>
-  <Grid>
-    <GridColumn
-      width={6}
-    >
+  <Grid
+    columns={3}
+  >
+    <GridColumn>
       <text
         color="#FFF"
         fontSize="54px"
@@ -16,18 +16,16 @@ exports[`FooterContainer renders correctly 1`] = `
     </GridColumn>
     <GridColumn
       textAlign="center"
-      width={4}
     >
       <text
         color="#FFF"
         fontSize="24px"
       >
-        Create some forces and start the analysis!
+        Create forces to start the analysis!
       </text>
     </GridColumn>
     <GridColumn
       textAlign="right"
-      width={6}
     >
       <text
         color="#FFF"

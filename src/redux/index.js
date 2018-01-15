@@ -7,8 +7,16 @@ import { loadState, saveState } from './localStorage';
 import forcesReducer, { type Forces } from '../ducks/forces';
 import changeReducer, { type Change } from '../ducks/change';
 import modeReducer, { type Mode } from '../ducks/mode';
+import scaleReducer, { type Scale } from '../ducks/scale';
 
 export type ReduxState = {
+  forces: Forces,
+  change: Change,
+  mode: Mode,
+  scale: Scale,
+}
+
+export type PersistedState = {
   forces: Forces,
   change: Change,
   mode: Mode,
@@ -26,6 +34,7 @@ const appReducer = combineReducers({
   forces: forcesReducer,
   change: changeReducer,
   mode: modeReducer,
+  scale: scaleReducer,
 });
 
 const rootReducer = (state, action) => {
@@ -41,5 +50,6 @@ const persistedState = loadState();
 export const store = createStore(rootReducer, persistedState);
 
 store.subscribe(_.throttle(() => {
-  saveState(store.getState());
+  const { forces, change, mode } = store.getState();
+  saveState({ forces, change, mode });
 }, 1000));

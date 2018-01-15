@@ -35,7 +35,7 @@ export class ForcesContainer extends Component<Props> {
     const { driving, submitButtonText, addForce, appMode } = this.props;
 
     return (
-      <Box>
+      <Box paddingBottom="8px">
         <Box textAlign={driving ? 'right' : 'left'}>{this.renderForces()}</Box>
 
         {appMode === EDIT_MODE &&

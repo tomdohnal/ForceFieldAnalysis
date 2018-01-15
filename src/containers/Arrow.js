@@ -13,11 +13,13 @@ import TextBubble from '../components/TextBubble';
 import { moveCaretAtTheEnd } from '../helpers';
 import type { ReduxState } from '../redux';
 import { EDIT_MODE, type Mode } from '../ducks/mode';
+import { type Scale } from '../ducks/scale';
 
 type Props = {
   color: string,
   force: Force,
   appMode: Mode,
+  windowScale: Scale,
   deleteForce: (id: string) => void,
   setForceName: (id: string, name: string) => void,
   increaseForce: (id: string) => void,
@@ -62,18 +64,18 @@ export class Arrow extends Component<Props, State> {
   };
 
   render() {
-    const { force: { driving, strength, name }, color, appMode } = this.props;
+    const { force: { driving, strength, name }, color, appMode, windowScale } = this.props;
     const { editArrow } = this.state;
 
-    const arrowUnitWidth = 50;
+    const arrowUnitWidth = Math.floor(80 * windowScale.width);
     const arrowWidth = strength * arrowUnitWidth;
-    const arrowHeight = 80;
-    const rectangleHeight = arrowHeight - 40;
-    const triangleWidth = 36;
+    const arrowHeight = Math.floor(94 * Math.sqrt(windowScale.height));
+    const rectangleHeight = arrowHeight / 2;
+    const triangleWidth = Math.floor(0.65 * arrowUnitWidth);
 
     return (
       <Box>
-        <TextBubble color={color} left={!driving} appMode={appMode} >
+        <TextBubble color={color} left={!driving} appMode={appMode} windowScale={windowScale} >
           {editArrow ?
             <Form onSubmit={this.onEditArrowNameFormSubmit}>
               <Input autoFocus size="small" value={name} onChange={this.onEditArrowInputChange} onFocus={moveCaretAtTheEnd} action>
@@ -157,7 +159,10 @@ export class Arrow extends Component<Props, State> {
   }
 }
 
-export const mapStateToProps = (state: ReduxState) => ({ appMode: state.mode });
+export const mapStateToProps = (state: ReduxState) => ({
+  appMode: state.mode,
+  windowScale: state.scale,
+});
 
 const actionCreators = { deleteForce, setForceName, increaseForce, decreaseForce };
 
