@@ -1,6 +1,7 @@
 {
   "name": "force-field-analysis",
   "version": "0.1.0",
+  "homepage": "https://tomdohnal.github.io/ForceFieldAnalysis",
   "private": true,
   "dependencies": {
     "enzyme": "^3.2.0",
