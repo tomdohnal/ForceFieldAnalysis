@@ -2,10 +2,10 @@
 
 exports[`Footer renders correctly 1`] = `
 <footerStyles>
-  <Grid>
-    <GridColumn
-      width={6}
-    >
+  <Grid
+    columns={3}
+  >
+    <GridColumn>
       <text
         color="#FFF"
         fontSize="54px"
@@ -16,7 +16,6 @@ exports[`Footer renders correctly 1`] = `
     </GridColumn>
     <GridColumn
       textAlign="center"
-      width={4}
     >
       <text
         color="#FFF"
@@ -27,7 +26,6 @@ exports[`Footer renders correctly 1`] = `
     </GridColumn>
     <GridColumn
       textAlign="right"
-      width={6}
     >
       <text
         color="#FFF"
